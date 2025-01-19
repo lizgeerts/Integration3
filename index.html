@@ -6,10 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mark of the Compasses</title>
     <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yaldevi:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/style.css" />
   </head>
   <body>
-    <canvas id="canvas"></canvas>
+    <div class="container">
+      <div class="loading">
+        <h1 class="optima loading__title">Compasses</h1>
+        <canvas id="canvas"></canvas>
+        <picture class="loading__img--pl">
+          <source sizes="(min-width: 900px) 550px, (min-width: 430px) 550px, 340px"
+                  srcset="./assets/img/Plantin-hero-951.avif 951w,
+                            ./assets/img/Plantin-hero-615.avif 615w,
+                            ./assets/img/Plantin-hero-590.avif 590w,
+                            ./assets/img/Plantin-hero-340.avif 340w" type="image/avif">
+        
+          <img class="loading__img--pl" src="./assets/img/Plantin-hero-951.png" width="522" height="569" alt="Christophe plantin" srcset="
+                            ./assets/img/Plantin-hero-615.png 615w,
+                            /assets/img/Plantin-hero-590.png 590w,
+                            ./assets/img/Plantin-hero-340.png 340w" sizes="(min-width: 900px) 550px, (min-width: 430px) 550px, 115px">
+        </picture>
+        <picture class="loading__img--pa">
+          <source sizes="(min-width: 900px) 550px, (min-width: 430px) 550px, 340px" 
+                  srcset="./assets/img/passer-hero-190.avif 190w,
+                                    ./assets/img/passer-hero-100.avif 100w,
+                                    ./assets/img/passer-hero-55.avif 55w" type="image/avif">
+        
+          <img class="loading__img--pa" src="./assets/img/passer-hero-190.png" width="190" height="280" alt="pair of compasses"
+                     srcset="
+                    ./assets/img/passer-hero-100.png 100w,
+                    /assets/img/passer-hero-55.png 55w"
+            sizes="(min-width: 900px) 550px, (min-width: 430px) 550px, 115px">
+        </picture>
+      </div>
+    </div>
     <script type="module" src="./src/script.js"></script>
   </body>
 </html>

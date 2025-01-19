@@ -1,8 +1,87 @@
-canvas {
-  width: 60rem;
-  object-fit: cover;
+html {
+  box-sizing: border-box;
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
 body {
-  background-color: pink;
+  height: 100%;
+}
+
+:root {
+  --bg-dark: #F1EFE9;
+  --bg: #FBFAF7;
+  --red: #B10B3A;
+  --black: #333332;
+  --orange: #E89D39;
+  --orange-d: #DC8C21;
+
+  /*  80px → 230px */
+  --f-big: clamp(5rem, 1.0087rem + 14.8515vw, 14.375rem);
+
+}
+
+
+body {
+  background-color: var(--bg);
+  margin: 0 auto;
+  font-family: "Yaldevi", serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  color: var(--black);
+}
+
+@font-face {
+  font-family: 'Optima';
+  src: url('/fonts/Optima.ttc') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.optima {
+  font-family: 'Optima', sans-serif
+}
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+.container {
+  max-width: 1600px;
+  display: grid;
+  height: 100%;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: no-wrap;
+  width: 1px;
+}
+
+/*loading*/
+
+.loading{
+  place-self: center;
+}
+
+.loading__title {
+  color: var(--bg-dark);
+  font-size: var(--f-big);
+  font-weight: bold;
+  place-self: center;
+}
+
+canvas {
+  width: 10rem;
+  object-fit: cover;
 }
