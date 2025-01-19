@@ -1,4 +1,4 @@
-import { DotLottie } from '@lottiefiles/dotlottie-web';
+import { DotLottie } from '/@lottiefiles/dotlottie-web';
 
 new DotLottie({
   autoplay: true,
