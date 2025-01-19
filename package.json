@@ -1,0 +1,18 @@
+{
+  "name": "demo-dotlottie",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.0.5"
+  },
+  "dependencies": {
+    "@lottiefiles/dotlottie-web": "^0.39.0",
+    "gsap": "^3.12.5"
+  }
+}
