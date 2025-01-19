@@ -2,3 +2,7 @@ canvas {
   width: 60rem;
   object-fit: cover;
 }
+
+body {
+  background-color: pink;
+}
