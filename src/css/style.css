@@ -24,8 +24,9 @@ body {
   /*  80px → 230px */
   --f-big: clamp(5rem, 1.0087rem + 14.8515vw, 14.375rem);
 
+  --s-xxxl: 15rem;
+  --s-xs: 1rem;
 }
-
 
 body {
   background-color: var(--bg);
@@ -55,8 +56,7 @@ img {
 
 .container {
   max-width: 1600px;
-  display: grid;
-  height: 100%;
+  overflow: hidden;
 }
 
 .visually-hidden {
@@ -70,8 +70,13 @@ img {
 
 /*loading*/
 
-.loading{
+.loading {
   place-self: center;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(4, 25%);
+  align-items: center;
+  justify-items: center;
 }
 
 .loading__title {
@@ -79,9 +84,65 @@ img {
   font-size: var(--f-big);
   font-weight: bold;
   place-self: center;
+  grid-row: 1;
+  grid-column: 1/span 4;
+  margin-bottom: var(--s-xxxl);
 }
 
-canvas {
-  width: 10rem;
+.loading__circle {
   object-fit: cover;
+  grid-column: 2/span 2;
+  grid-row: 1;
+}
+
+picture {
+  display: block;
+}
+
+.loading__img--pl {
+  width: 33.3rem;
+}
+
+.loading__img--pa {
+  width: 7.9rem;
+}
+
+.plantin-hero {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  place-content: center;
+  width: 35rem;
+  grid-column: 1/span 2;
+  grid-row: 1;
+  margin-bottom: var(--s-xxxl);
+}
+
+.plantin-hero--pl {
+  grid-column: 1/ span 2;
+  grid-row: 1;
+}
+
+.plantin-hero--pa {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: flex-end;
+  margin-bottom: var(--s-xs);
+}
+
+@media only screen and (min-width: 600px) {
+
+  .plantin-hero,
+  .loading__title {
+    margin-bottom: 0;
+  }
+
+  .loading__circle {
+    margin-top: var(--s-xxxl);
+  }
+}
+
+@media only screen and (min-width: 1020px) {
+  .plantin-hero {
+    grid-column: 1/span 2;
+  }
 }
