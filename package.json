@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host --base=/Integration3/",
-    "build": "vite build --base=/Integration3/",
-    "preview": "vite preview --base=/Integration3/"
+    "dev": "vite --host ",
+    "build": "vite build ",
+    "preview": "vite preview "
   },
   "devDependencies": {
     "vite": "^6.0.5"
