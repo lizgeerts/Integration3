@@ -69,8 +69,8 @@ const hamburgerMenu = () => {
 
 
 const toggleMenu = () => {
-    const menu = document.querySelector('.menu');
-    menu.classList.toggle('active');
+  const menu = document.querySelector('.menu');
+  menu.classList.toggle('active');
 }
 
 init();

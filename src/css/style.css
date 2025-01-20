@@ -331,6 +331,11 @@ header {
   display: none;
 }
 
+.close-btn:hover, .navigation__hamb{
+  cursor: pointer;
+  stroke: var(--red);
+}
+
 
 /* media queries */
 
@@ -438,4 +443,5 @@ header {
   .menu__story {
     margin-left: var(--s-xxxl);
   }
+
 }
