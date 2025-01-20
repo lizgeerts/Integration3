@@ -25,6 +25,8 @@ body {
   --f-big: clamp(5rem, 1.0087rem + 14.8515vw, 14.375rem);
 
   --s-xxxl: 15rem;
+  /* 160px -> 30px */
+  --s-xxl: clamp(1.875rem, 20.666rem + -50.1931vw, 10rem);
   --s-xs: 1rem;
 }
 
@@ -72,15 +74,17 @@ img {
 /*loading*/
 
 .loading {
+  background-color: var(--bg);
   place-self: center;
   display: grid;
   height: 100vh;
-  grid-template-columns: 20% 20% 7.5% 5% 7.5% 20% 20%;
+  width: 100vw;
+  grid-template-columns: repeat(4, 25%);
   align-items: center;
   justify-items: center;
   background-image: url(../assets/img/texture-loading-phone.png);
   background-position: 50%;
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -90,13 +94,13 @@ img {
   font-weight: bold;
   place-self: center;
   grid-row: 1;
-  grid-column: 1/span 7;
+  grid-column: 1/span 4;
   margin-bottom: var(--s-xxxl);
 }
 
 .loading__circle {
   object-fit: cover;
-  grid-column: 2/span 5;
+  grid-column: 2/span 2;
   grid-row: 1;
 }
 
@@ -116,9 +120,10 @@ picture {
   display: grid;
   grid-template-columns: 5fr 1fr;
   place-content: center;
-  grid-column: 1/span 4;
+  grid-column: 1;
   grid-row: 1;
   margin-bottom: var(--s-xxxl);
+  margin-right: var(--s-xxl);
 }
 
 .plantin-hero--pl {
@@ -136,29 +141,46 @@ picture {
 
 @media only screen and (min-width: 600px) {
 
+  .loading {
+    grid-template-columns: 20% 20% 7.5% 5% 7.5% 20% 20%;
+  }
+
   .loading__circle {
     width: 120%;
+    grid-column: 2/span 5;
     margin-top: 20%;
   }
 
   .plantin-hero {
     margin-top: 20%;
+    grid-column: 1/span 3;
+    margin-right: 0;
+  }
+
+  .loading__title {
+    grid-column: 1/ span 7;
   }
 }
 
 @media only screen and (min-width: 1000px) {
   .loading {
     background-image: url(../assets/img/texture-loading.png);
-    background-size: 130%;
   }
 
   .plantin-hero {
-    grid-column: 2/span 3;
+    grid-column: 2/ span 3;
     margin-bottom: 15%;
     max-width: 35rem;
+    margin-top: 0;
   }
 
   .loading__circle {
-    margin-top: 15%;
+    margin-top: 3%;
+    grid-column: 1/span 7;
+    max-width: 60rem;
+  }
+
+  .loading__title {
+    margin-bottom: 0;
   }
 }

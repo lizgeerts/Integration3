@@ -7,11 +7,14 @@ new DotLottie({
   src: "./src/assets/Loading-circles.json",
 });
 
+const loadingScreen = document.querySelector(".loading");
+
 const init = () => {
   gsap.registerPlugin(Draggable);
   gsap.registerPlugin(ScrollTrigger);
 
   passerSwing();
+  loaderScreen();
 }
 
 const passerSwing = () => {
@@ -28,5 +31,14 @@ const passerSwing = () => {
   });
 
 };
+
+const loaderScreen = () => {
+ window.addEventListener('load', handleLoadDisappear);
+}
+
+const handleLoadDisappear = () => {
+  loadingScreen.style.display = 'none';
+}
+
 
 init();
