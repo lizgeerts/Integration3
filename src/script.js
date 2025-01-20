@@ -34,7 +34,7 @@ const init = () => {
 const passerSwing = () => {
   if (hasReducedMotion) {
     gsap.set(".plantin-hero--pa", {
-      rotation: 0, 
+      rotation: 0,
     });
   } else {
     gsap.set(".plantin-hero--pa", {
@@ -53,8 +53,8 @@ const passerSwing = () => {
 };
 
 const loaderScreen = () => {
-  lottieInstance('#loading', './src/assets/Loading-circles.json')
-   window.addEventListener('load', handleLoadDisappear);
+  lottieInstance('#loading', `${import.meta.env.BASE_URL}assets/Loading-circles.json`);
+  //window.addEventListener('load', handleLoadDisappear);
 }
 
 const handleLoadDisappear = () => {
