@@ -331,14 +331,27 @@ header {
   display: none;
 }
 
-.close-btn:hover, .navigation__hamb{
+.close-btn:hover,
+.navigation__hamb {
   cursor: pointer;
   stroke: var(--red);
 }
 
+/* hero*/
+
+.plantin {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  place-content: center;
+  width: 21.5rem;
+}
+
+.plantin__passer{
+  margin-bottom: 40%;
+}
+
 
 /* media queries */
-
 
 @media only screen and (min-width: 600px) {
 
