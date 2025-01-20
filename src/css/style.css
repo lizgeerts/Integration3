@@ -81,6 +81,9 @@ img {
 /*loading*/
 
 .loading {
+  position: absolute;
+  z-index: 5;
+  overflow: hidden;
   background-color: var(--bg);
   place-self: center;
   display: grid;
@@ -204,7 +207,7 @@ a {
   color: var(--black);
 }
 
-header{
+header {
   width: 100vw;
   overflow: hidden;
 }
@@ -229,6 +232,6 @@ header{
   grid-column: 1;
 }
 
-.navigation__logo{
+.navigation__logo {
   width: 90px;
 }

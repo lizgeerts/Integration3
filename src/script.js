@@ -54,7 +54,7 @@ const passerSwing = () => {
 
 const loaderScreen = () => {
   lottieInstance('#loading', './src/assets/Loading-circles.json')
-   window.addEventListener('load', handleLoadDisappear);
+   //window.addEventListener('load', handleLoadDisappear);
 }
 
 const handleLoadDisappear = () => {
