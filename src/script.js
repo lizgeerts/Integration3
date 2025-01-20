@@ -29,6 +29,7 @@ const init = () => {
 
   passerSwing();
   loaderScreen();
+  hamburgerMenu();
 }
 
 const passerSwing = () => {
@@ -54,12 +55,22 @@ const passerSwing = () => {
 
 const loaderScreen = () => {
   lottieInstance('#loading', `${import.meta.env.BASE_URL}assets/Loading-circles.json`);
-  //window.addEventListener('load', handleLoadDisappear);
+  window.addEventListener('load', handleLoadDisappear);
 }
 
 const handleLoadDisappear = () => {
   loadingScreen.style.display = 'none';
 }
 
+const hamburgerMenu = () => {
+  document.querySelector('.hamburger').addEventListener('click', toggleMenu);
+  document.querySelector('.close-btn').addEventListener('click', toggleMenu);
+}
+
+
+const toggleMenu = () => {
+    const menu = document.querySelector('.menu');
+    menu.classList.toggle('active');
+}
 
 init();

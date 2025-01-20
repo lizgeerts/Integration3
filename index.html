@@ -45,7 +45,7 @@
       </div>
       <header class="header">
        <nav class="navigation">
-         <img class="navigation__hamb" src="./src/assets/img/hamburger.svg" width="42" height="27" alt="hamburger menu"> 
+         <img class="navigation__hamb hamburger" src="./src/assets/img/hamburger.svg" width="42" height="27" alt="hamburger menu"> 
           <picture class="navigation__logo">
             <source sizes="(min-width: 600px) 125px, 90px" srcset="./src/assets/img/Logo-125.avif 125w,
                                       ./src/assets/img/Logo-90.avif 90w,
@@ -58,9 +58,50 @@
                                 ./src/assets/img/Logo-60.png 60w" sizes="(min-width: 600px) 125px, 90px">
           </picture>
           <a class="navigation__button" href="https://ttk.recreatex.be/Exhibitions/Register?ID=193d593e-f57a-ed11-9592-a48785620fa0&refresh=y&language=en">
-            <img class="button__img" src="./src/assets/img/tickets.svg" alt="button">
+            <svg class="button__img" width="130" height="46" viewBox="0 0 130 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="svg__stroke"
+                d="M20 3V3C10.6112 3 3 10.6112 3 20V23C3 34.0457 11.9543 43 23 43H93.5M51 3H107C118.046 3 127 11.9543 127 23V27.5C127 36.0604 120.06 43 111.5 43V43M45 3H35.5M24 3H27H30"
+                stroke="#333332" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path class="svg__stroke"
+                d="M18.5484 1V1C8.85668 1 1 8.85668 1 18.5484V23C1 35.1503 10.8497 45 23 45H94.4194M50.5484 1H107C119.15 1 129 10.8497 129 23V29C129 37.8366 121.837 45 113 45V45M44.3548 1H34.5484M22.6774 1H25.7742H28.871"
+                stroke="#333332" stroke-width="0.3" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
             <p class="button__text">Tickets</p></a>
        </nav>
+        <nav class="menu">
+          <img class="close-btn" src="./src/assets/img/close.svg" alt="close button" width="76">
+          <div class="menu__museum">
+            <h2 class="menu__title menu__title--museum optima">Museum Links</h2>
+            <ul class="menu__list menu__list--m">
+              <li class="menu__item"> Home </li>
+              <li class="menu__item"> About</li>
+              <li class="menu__item"> Contact </li>
+              <li class="menu__item"> <a class="navigation__button"
+                href="https://ttk.recreatex.be/Exhibitions/Register?ID=193d593e-f57a-ed11-9592-a48785620fa0&refresh=y&language=en">
+                <svg class="button__img" width="130" height="46" viewBox="0 0 130 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="svg__stroke"
+                    d="M20 3V3C10.6112 3 3 10.6112 3 20V23C3 34.0457 11.9543 43 23 43H93.5M51 3H107C118.046 3 127 11.9543 127 23V27.5C127 36.0604 120.06 43 111.5 43V43M45 3H35.5M24 3H27H30"
+                    stroke="#333332" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path class="svg__stroke"
+                    d="M18.5484 1V1C8.85668 1 1 8.85668 1 18.5484V23C1 35.1503 10.8497 45 23 45H94.4194M50.5484 1H107C119.15 1 129 10.8497 129 23V29C129 37.8366 121.837 45 113 45V45M44.3548 1H34.5484M22.6774 1H25.7742H28.871"
+                    stroke="#333332" stroke-width="0.3" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p class="button__text">Tickets</p>
+              </a> </li>
+            </ul>
+          </div>
+          <div class="menu__story">
+            <h2 class="menu__title menu__title--story optima">The story</h2>
+            <ul class="menu__list">
+              <li class="menu__item">Introduction</li>
+              <li class="menu__item"> Three marks history </li>
+              <li class="menu__item"> The compasses </li>
+              <li class="menu__item">The motto</li>
+              <li class="menu__item">Iconic works</li>
+              <li class="menu__item">Next story</li>
+            </ul>
+          </div>
+        </nav>
       </header>
     </div>
 
