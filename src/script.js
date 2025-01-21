@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/all';
 const mm = gsap.matchMedia();
 const hasReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const isSemiLarge = window.matchMedia("(min-width: 800px)").matches;
+const isLarge = window.matchMedia("(min-width: 1200px)").matches;
 const loadingScreen = document.querySelector(".loading");
 
 const lottieInstance = (canvasSelector, src, loop) => {
@@ -126,27 +127,39 @@ const handleButtonClicked = () => {
         duration: 1,
       });
 
-  if (isSemiLarge) {
+ if(isLarge){
     tl.to(
       plantinImage,
       {
-        scale: 1.5,
-        x: "-60%",
-        y: "-60%",
+        scale: 1.6,
+        x: "-70%",
+        y: "-40%",
         duration: 1.5,
         ease: "power2.out",
       },
       "<"
     )
-    .to(
-      document.querySelector(".hero__house"),{
-        marginTop: "-13rem",
-        ease: "power2.out",
-        duration: 2
-      }
-    )
-  //  document.querySelector(".hero__house").classList.toggle("before");
-  } else {
+ } else if (isSemiLarge) {
+   tl.to(
+     plantinImage,
+     {
+       scale: 1.5,
+       x: "-60%",
+       y: "-60%",
+       duration: 1.5,
+       ease: "power2.out",
+     },
+     "<"
+   )
+     .to(
+       document.querySelector(".hero__house"), {
+       marginTop: "-13rem",
+       ease: "power2.out",
+       duration: 2
+     }
+     )
+   //  document.querySelector(".hero__house").classList.toggle("before");
+ } else {
     tl.to(
       plantinImage,
       {

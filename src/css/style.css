@@ -38,6 +38,9 @@ body {
   /* Space s: 16px → 30px */
   --s-s: clamp(1rem, 0.7295rem + 1.2727vw, 1.875rem);
 
+  /* Space s: 0px → 96px */
+  --special-hero: clamp(0rem, -30rem + 40vw, 6rem);
+
   --s-xxxl: 15rem;
   --s-0: 0.9375rem;
   /*15*/
@@ -670,6 +673,11 @@ html:not(.has-js) .nojs-hide {
   .start__title {
     align-self: start;
   }
+
+  .sign,
+  .sign-sold {
+    width: 16rem;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -754,6 +762,73 @@ html:not(.has-js) .nojs-hide {
 
   header {
     background-image: url(../assets/img/texture-desktop-hero.png);
+  }
+
+  .sign,
+  .sign-sold {
+    width: 20rem;
+    justify-self: start;
+    align-self: end;
+    transform: translateY(4%);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .hero {
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 57% 45%;
+  }
+
+  .introduction {
+    justify-self: end;
+    margin-right: var(--s-s);
+  }
+
+  .hero__plantin {
+    margin-top: 0;
+  }
+
+  .sign,
+  .sign-sold {
+    width: 18rem;
+    justify-self: auto;
+    align-self: end;
+    grid-row: 2;
+  }
+
+  .hero__house {
+    background-image: url(../assets/img/background-house-large.svg);
+    background-position-x: 90%;
+    background-position-y: 2.5rem;
+    background-size: 60%;
+    grid-template-rows: 0.2fr 1fr 0.5fr;
+    max-height: 30rem;
+  }
+
+  .button__img--hero {
+    width: 226px;
+  }
+
+  .button__text--hero {
+    font-size: var(--f-m-l)
+  }
+
+  .plantin {
+    margin-top: -2rem;
+  }
+
+  .plantin__name::after {
+    left: 10%;
+    top: 26%;
+  }
+
+  .start {
+    margin: 6rem 0 0 6rem;
+  }
+
+  .start__text{
+    margin-right: var(--special-hero);
   }
 
 }
