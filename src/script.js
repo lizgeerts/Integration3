@@ -6,10 +6,10 @@ const mm = gsap.matchMedia();
 const hasReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const loadingScreen = document.querySelector(".loading");
 
-const lottieInstance = (canvasSelector, src) => {
+const lottieInstance = (canvasSelector, src, loop) => {
   const instance = new DotLottie({
     autoplay: !hasReducedMotion,
-    loop: !hasReducedMotion,
+    loop: !hasReducedMotion && loop,
     canvas: document.querySelector(canvasSelector),
     src: src,
   });
@@ -31,6 +31,7 @@ const init = () => {
   passerSwing();
   loaderScreen();
   hamburgerMenu();
+  heroAnimations();
 }
 
 const passerSwing = () => {
@@ -55,7 +56,7 @@ const passerSwing = () => {
 };
 
 const loaderScreen = () => {
-  lottieInstance('#loading', `${import.meta.env.BASE_URL}assets/Loading-circles.json`);
+  lottieInstance('#loading', `${import.meta.env.BASE_URL}assets/Loading-circles.json`, true);
   window.addEventListener('load', handleLoadDisappear);
 }
 
@@ -72,6 +73,108 @@ const hamburgerMenu = () => {
 const toggleMenu = () => {
   const menu = document.querySelector('.menu');
   menu.classList.toggle('active');
+}
+
+const heroAnimations = () => {
+  const button = document.querySelector(".hero__button");
+
+  if (!hasReducedMotion) {
+    gsap.to(button, {
+      scale: 1.05,
+      repeat: -1,
+      yoyo: true,
+      duration: 1,
+      ease: "power1.inOut",
+    });
+  }
+
+  button.addEventListener("click", handleButtonClicked);
+}
+
+const handleButtonClicked = () => {
+  const introduction = document.querySelector(".introduction");
+  const plantinName = document.querySelector(".plantin__name");
+  const houseName = document.querySelector(".house__name")
+  const start = document.querySelector(".start");
+  const plantinImage = document.querySelector(".plantin");
+  const saleSign = document.querySelector(".sign");
+  const soldSign = document.querySelector(".sign-sold");
+
+  const tl = gsap.timeline();
+
+  tl
+    .to(introduction, {
+      opacity: 0,
+      duration: 0.8,
+      onComplete: () => {
+        introduction.classList.add("hidden");
+      },
+    })
+    .to(plantinName, {
+      opacity: 0,
+      duration: 0.8,
+    }, "<")
+    .fromTo(
+      start,
+      {
+        opacity: 0
+      },
+      {
+        opacity: 1,
+        display: "flex",
+        duration: 1,
+      })
+    .to(
+      plantinImage,
+      {
+        scale: 2,
+        x: "-50%",
+        y: "-7%",
+        duration: 1.5,
+        ease: "power2.out",
+      },
+      "<"
+    )
+    .to(
+      saleSign,
+      {
+        y: 100,
+        rotation: -40,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.in",
+        onComplete: () => {
+          saleSign.classList.add("hidden");
+        },
+      })
+    .fromTo(
+      soldSign,
+      {
+        x: 70,
+        opacity: 0,
+        rotation: 30
+      },
+      {
+        x: 10,
+        rotation: 0,
+        opacity: 1,
+        display: "block",
+        duration: 1.3,
+        ease: "power2.out",
+      }, "+=0.2")
+    .to(houseName, {
+      opacity: 0,
+      duration: 0.8,
+    }, "<");
+
+  tl.call(() => {
+    lottieInstance(
+      ".house__name--animation",
+      `${import.meta.env.BASE_URL}assets/text-animation.json`,
+      false
+    );
+  });
+
 }
 
 init();

@@ -31,6 +31,8 @@ body {
   --s-l-m: clamp(1.875rem, 4.5483rem + -2.9703vw, 3.75rem);
   /* Space s: 27px → 60px */
   --m-xl: clamp(1.6875rem, 1.05rem + 3vw, 3.75rem);
+  /*  64px → 110px */
+  --s-l-xl: clamp(4rem, -4.1458rem + 38.3333vw, 6.875rem);
 
   --s-xxxl: 15rem;
   --s-0: 0.9375rem;
@@ -395,7 +397,11 @@ header {
 }
 
 html:not(.has-js) .hidden {
-  display: block;
+  display: flex;
+}
+
+html:not(.has-js) .nojs-hide {
+  display: none;
 }
 
 .button__text--hero {
@@ -529,17 +535,21 @@ html:not(.has-js) .hidden {
   transform: translateX(8%);
 }
 
-.house__name, .house__name--animation {
+.house__name,
+.house__name--animation {
   grid-column: 2/span 2;
   grid-row: 1;
   justify-self: center;
   margin-bottom: var(--f-s);
 }
 
-.house__name--animation{
- grid-row: 1/span 2;
- width: 213px;
- align-self: start;
+.house__name--animation {
+  grid-row: 1/span 2;
+  width: 213px;
+  height: 54px;
+  align-self: start;
+  object-fit: cover;
+  margin-top: -1rem;
 }
 
 .sign,
@@ -550,7 +560,7 @@ html:not(.has-js) .hidden {
 }
 
 .hero__house.before {
-  margin-top: 4rem;
+  margin-top: var(--s-l-xl);
 }
 
 /* media queries */
