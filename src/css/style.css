@@ -29,10 +29,14 @@ body {
   --sp-m-l: clamp(1.5rem, 0.8082rem + 2.5743vw, 3.125rem);
   /* Space s: 60px → 30px */
   --s-l-m: clamp(1.875rem, 4.5483rem + -2.9703vw, 3.75rem);
+  /* Space s: 60px → 22px */
+  --s-l-s: clamp(1.375rem, 4.4841rem + -3.4545vw, 3.75rem);
   /* Space s: 27px → 60px */
   --m-xl: clamp(1.6875rem, 1.05rem + 3vw, 3.75rem);
   /*  64px → 110px */
-  --s-l-xl: clamp(4rem, -4.1458rem + 38.3333vw, 6.875rem);
+  --s-l-xl: clamp(4rem, -4.1458rem + 38.3333vw, 9rem);
+  /* Space s: 16px → 30px */
+  --s-s: clamp(1rem, 0.7295rem + 1.2727vw, 1.875rem);
 
   --s-xxxl: 15rem;
   --s-0: 0.9375rem;
@@ -74,7 +78,7 @@ body {
   /*  290px → 323px */
   --width-text: clamp(18.125rem, 17.4875rem + 3vw, 20.1875rem);
   /* Space s: 200px → 330px */
-  --width-text-2: clamp(14rem, 9.9886rem + 11.8182vw, 20.625rem);
+  --width-text-2: clamp(11.875rem, 2.8846rem + 42.3077vw, 18.75rem);
 }
 
 body {
@@ -384,12 +388,12 @@ header {
   grid-column: 1 / span 2;
   grid-row: 2/span 2;
   transform: translateX(-30%);
-  margin-top: var(--s-l-m);
+  margin-top: var(--s-l-s);
   width: 18rem;
 }
 
 .plantin__passer {
-  margin-bottom: 40%;
+  margin-bottom: 43%;
 }
 
 .hero .hidden {
@@ -429,7 +433,7 @@ html:not(.has-js) .nojs-hide {
   flex-flow: column;
   align-items: center;
   max-width: var(--width-text);
-  gap: var(--s-1);
+  gap: var(--s-s);
   grid-column: 2/ span 2;
   grid-row: 2;
   margin-right: var(--space-m-3xl);
@@ -484,7 +488,7 @@ html:not(.has-js) .nojs-hide {
   display: grid;
   grid-template-columns: 15% 45% 40%;
   grid-template-rows: 25% 75%;
-  margin-top: var(--s-l-m);
+  margin-top: 4.5rem;
 }
 
 .start {
@@ -556,27 +560,65 @@ html:not(.has-js) .nojs-hide {
 .sign-sold {
   grid-column: 1/span 2;
   grid-row: 2;
-  transform: translateX(4%) rotate(-10deg);
+  transform: translateX(7%) rotate(-10deg);
 }
 
 .hero__house.before {
   margin-top: var(--s-l-xl);
 }
 
+.button__img--hero {
+  width: 170px;
+}
+
 /* media queries */
 
 @media only screen and (min-width: 430px) {
   .plantin {
-    width: 20rem;
-    transform: translateX(-20%);
+    width: 22rem;
+    transform: translateX(-18%);
   }
 
   .introduction {
     justify-self: center;
   }
+
+  .sign,
+  .sign-sold {
+    width: 14.5rem;
+    transform: translateX(3%) rotate(-10deg);
+    justify-self: flex-end;
+  }
 }
 
 @media only screen and (min-width: 600px) {
+  .plantin {
+    width: 25rem;
+    transform: translateX(-14%);
+    justify-self: start;
+  }
+
+  .plantin__name::after {
+    transform: rotate(80deg);
+    left: 10%;
+    top: 30%;
+  }
+
+  .plantin__name {
+    align-self: center;
+    max-width: 100%;
+    grid-column: 1/ span 2;
+  }
+
+  .house__name--animation {
+    height: 74px;
+    width: 300px;
+    margin-top: -3rem;
+  }
+
+  .button__img--hero {
+    width: 220px;
+  }
 
   .loading {
     grid-template-columns: 20% 20% 7.5% 5% 7.5% 20% 20%;
@@ -596,6 +638,37 @@ html:not(.has-js) .nojs-hide {
 
   .loading__title {
     grid-column: 1/ span 7;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .plantin {
+    width: 35rem;
+    transform: translateX(-8%);
+    justify-self: start;
+    margin-top: 1rem;
+  }
+
+  .plantin__passer {
+    margin-bottom: 49%;
+  }
+
+  .plantin-img {
+    justify-self: center;
+  }
+
+  .start {
+    justify-self: auto;
+    max-width: 650px;
+  }
+
+  .start__text {
+    align-self: end;
+    max-width: 22rem;
+  }
+
+  .start__title {
+    align-self: start;
   }
 }
 

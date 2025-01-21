@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/all';
 
 const mm = gsap.matchMedia();
 const hasReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isSemiLarge = window.matchMedia("(min-width: 800px)").matches;
 const loadingScreen = document.querySelector(".loading");
 
 const lottieInstance = (canvasSelector, src, loop) => {
@@ -123,8 +124,30 @@ const handleButtonClicked = () => {
         opacity: 1,
         display: "flex",
         duration: 1,
-      })
+      });
+
+  if (isSemiLarge) {
+    tl.to(
+      plantinImage,
+      {
+        scale: 1.5,
+        x: "-60%",
+        y: "-60%",
+        duration: 1.5,
+        ease: "power2.out",
+      },
+      "<"
+    )
     .to(
+      document.querySelector(".hero__house"),{
+        marginTop: "-13rem",
+        ease: "power2.out",
+        duration: 2
+      }
+    )
+  //  document.querySelector(".hero__house").classList.toggle("before");
+  } else {
+    tl.to(
       plantinImage,
       {
         scale: 2,
@@ -135,18 +158,20 @@ const handleButtonClicked = () => {
       },
       "<"
     )
-    .to(
-      saleSign,
-      {
-        y: 100,
-        rotation: -40,
-        opacity: 0,
-        duration: 1,
-        ease: "power2.in",
-        onComplete: () => {
-          saleSign.classList.add("hidden");
-        },
-      })
+  };
+
+  tl.to(
+    saleSign,
+    {
+      y: 100,
+      rotation: -40,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.in",
+      onComplete: () => {
+        saleSign.classList.add("hidden");
+      },
+    })
     .fromTo(
       soldSign,
       {
