@@ -350,6 +350,10 @@ header {
   margin-bottom: 40%;
 }
 
+.has-js .form-submit {
+  display: none;
+}
+
 
 /* media queries */
 

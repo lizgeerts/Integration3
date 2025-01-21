@@ -24,6 +24,7 @@ const lottieInstance = (canvasSelector, src) => {
 };
 
 const init = () => {
+  document.documentElement.classList.add('has-js');
   gsap.registerPlugin(Draggable);
   gsap.registerPlugin(ScrollTrigger);
 
