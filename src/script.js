@@ -1,6 +1,7 @@
 import { DotLottie } from '@lottiefiles/dotlottie-web';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
+
+gsap.registerPlugin(Draggable);
+gsap.registerPlugin(ScrollTrigger)
 
 const mm = gsap.matchMedia();
 const hasReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -27,13 +28,12 @@ const lottieInstance = (canvasSelector, src, loop) => {
 
 const init = () => {
   document.documentElement.classList.add('has-js');
-  gsap.registerPlugin(Draggable);
-  gsap.registerPlugin(ScrollTrigger);
 
   passerSwing();
   loaderScreen();
   hamburgerMenu();
   heroAnimations();
+  introAnimations();
 }
 
 const passerSwing = () => {
@@ -102,6 +102,8 @@ const handleButtonClicked = () => {
   const saleSign = document.querySelector(".sign");
   const soldSign = document.querySelector(".sign-sold");
 
+  document.body.style.overflowY = "auto";
+
   const tl = gsap.timeline();
 
   tl
@@ -127,7 +129,7 @@ const handleButtonClicked = () => {
         duration: 1,
       });
 
- if(isLarge){
+  if (isLarge) {
     tl.to(
       plantinImage,
       {
@@ -139,27 +141,27 @@ const handleButtonClicked = () => {
       },
       "<"
     )
- } else if (isSemiLarge) {
-   tl.to(
-     plantinImage,
-     {
-       scale: 1.5,
-       x: "-60%",
-       y: "-60%",
-       duration: 1.5,
-       ease: "power2.out",
-     },
-     "<"
-   )
-     .to(
-       document.querySelector(".hero__house"), {
-       marginTop: "-13rem",
-       ease: "power2.out",
-       duration: 2
-     }
-     )
-   //  document.querySelector(".hero__house").classList.toggle("before");
- } else {
+  } else if (isSemiLarge) {
+    tl.to(
+      plantinImage,
+      {
+        scale: 1.5,
+        x: "-60%",
+        y: "-60%",
+        duration: 1.5,
+        ease: "power2.out",
+      },
+      "<"
+    )
+      .to(
+        document.querySelector(".hero__house"), {
+        marginTop: "-13rem",
+        ease: "power2.out",
+        duration: 2
+      }
+      )
+    //  document.querySelector(".hero__house").classList.toggle("before");
+  } else {
     tl.to(
       plantinImage,
       {
@@ -214,5 +216,125 @@ const handleButtonClicked = () => {
   });
 
 }
+
+const introAnimations = () => {
+  const yearLetters = document.querySelectorAll(".year-letter");
+  const yearRight = document.querySelectorAll(".year-letter--right");
+  const yearLeft = document.querySelectorAll(".year-letter--left");
+  const infText = document.querySelector(".inf__text");
+  const cpPasser = document.querySelector(".cp__passer");
+  const cpImg = document.querySelector(".cp__img--phone");
+  const mathImg = document.querySelector(".math__img");
+  const cta = document.querySelector(".inf__cta");
+
+  gsap.set(yearLetters, {
+    y: () => gsap.utils.random(-20, 20), // Random vertical position
+    rotation: () => gsap.utils.random(-30, 30), // Random rotation
+  });
+
+  const getStartingPosition = (isLeft) => {
+    const viewportWidth = window.innerWidth;
+    const minViewport = 380;
+    const maxViewport = 1440;
+
+    const percentage = gsap.utils.interpolate(
+      isLeft ? -100 : 100,
+      isLeft ? -450 : 450,
+      (viewportWidth - minViewport) / (maxViewport - minViewport)
+    );
+
+    return `${percentage}%`;
+  };
+
+  gsap.set(yearLeft, {
+    x: () => getStartingPosition(true),
+  });
+
+  gsap.set(yearRight, {
+    x: () => getStartingPosition(false),
+  });
+
+  gsap.set([infText, cpPasser, cpImg, mathImg, cta], {
+    opacity: 0,
+    y: 50,
+  });
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".intro",
+      start: "top 60%",
+      end: "top 20%",
+      scrub: 2,
+      markers: true
+    },
+  });
+
+  yearLetters.forEach((letter, index) => {
+    tl.to(
+      letter,
+      {
+        x: 0,
+        y: 0,
+        rotation: 0,
+        duration: 1,
+        ease: "power2.out",
+      },
+      index * 0.2
+    );
+  });
+
+  tl.to(
+    infText,
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power2.out",
+    },
+    "-=0.5"
+  )
+    .to(
+      cpPasser,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+      },
+      "-=0.5"
+    )
+    .to(
+      cta,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+      },
+      "-=0.5"
+    )
+    .to(
+      cpImg,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+      },
+      "-=0.5"
+    )
+    .to(
+      mathImg,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+      },
+      "-=0.5"
+    );
+
+}
+
 
 init();

@@ -37,6 +37,8 @@ body {
   --s-l-xl: clamp(4rem, -4.1458rem + 38.3333vw, 9rem);
   /* Space s: 16px → 30px */
   --s-s: clamp(1rem, 0.7295rem + 1.2727vw, 1.875rem);
+  /* Space s: 80px → 192px */
+  --s-intro: clamp(5rem, 1.7561rem + 13.6585vw, 12rem);
 
   /* Space s: 0px → 96px */
   --special-hero: clamp(0rem, -30rem + 40vw, 6rem);
@@ -77,6 +79,8 @@ body {
   --f-l: clamp(1.5625rem, 1.4378rem + 0.6236vw, 1.999rem);
   /* Step 4: 39px → 56.8px */
   --f-xl: clamp(2.4414rem, 2.1241rem + 1.5866vw, 3.552rem);
+  /* Step 0: 180px → 200px */
+  --f-xxxl: clamp(11.25rem, 10.8019rem + 1.8868vw, 12.5rem);
 
   /*  290px → 323px */
   --width-text: clamp(18.125rem, 17.4875rem + 3vw, 20.1875rem);
@@ -94,7 +98,13 @@ body {
   color: var(--black);
   line-height: 134%;
   overflow-x: hidden;
+  /*overflow-y: hidden;*/
 }
+
+html:not(.has-js) body {
+  overflow-y: auto;
+}
+
 
 @font-face {
   font-family: 'Optima';
@@ -531,7 +541,7 @@ html:not(.has-js) .nojs-hide {
   background-repeat: no-repeat;
   background-size: 75%;
   background-position-x: 100%;
-  background-position-y: 130%;
+  background-position-y: 100%;
 }
 
 .house {
@@ -572,6 +582,93 @@ html:not(.has-js) .nojs-hide {
 
 .button__img--hero {
   width: 170px;
+}
+
+.hero {
+  height: 100%;
+}
+
+/* intro */
+
+.cp__img--desktop,
+.intro__math {
+  display: none;
+}
+
+.intro {
+  display: flex;
+  flex-flow: column;
+  margin-top: var(--s-intro);
+}
+
+.intro__inf {
+  max-width: 476px;
+  margin: 0 var(--space-m-3xl);
+  height: auto;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: var(--m-xl);
+  order: -1;
+  align-self: center;
+}
+
+.year-letter {
+  color: var(--red);
+  font-size: var(--f-xxxl);
+  text-align: center;
+}
+
+.year-letter--1 {
+  padding-left: 1rem;
+}
+
+.year-container {
+  margin-left: -1rem;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 5rem);
+  height: 8rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.inf__text {
+  text-align: center;
+  max-width: 18rem;
+}
+
+.intro__cp {
+  margin-top: -4rem;
+  display: grid;
+  align-items: center;
+}
+
+.cp__passer,
+.cp__img {
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: end;
+}
+
+.cp__img--phone {
+  margin-top: 5rem;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.cta__arrow {
+  animation: bounce 1.5s infinite;
 }
 
 /* media queries */
@@ -775,7 +872,7 @@ html:not(.has-js) .nojs-hide {
 
 @media only screen and (min-width: 1200px) {
   .hero {
-    height: 90vh;
+    height: 94vh;
     display: grid;
     grid-template-columns: 57% 45%;
   }
@@ -827,7 +924,7 @@ html:not(.has-js) .nojs-hide {
     margin: 6rem 0 0 6rem;
   }
 
-  .start__text{
+  .start__text {
     margin-right: var(--special-hero);
   }
 

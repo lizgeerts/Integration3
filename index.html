@@ -190,10 +190,47 @@
           </div>
        </div>
       </header>
+      <section class="intro" >
+        <div class="intro__cp">
+          <img class="cp__img cp__img--desktop" src="./src/assets/img/intro-left.svg" width="752">
+          <img class="cp__img cp__img--phone" src="./src/assets/img/intro-left-phone.svg" width="160">
+          <picture class="cp__passer">
+            <source sizes="190px" srcset="./src/assets/img/compasses-intro-480.avif 480w,
+                                                ./src/assets/img/compasses-intro-406.avif 406w,
+                                                " type="image/avif">
+            <img class="cp__passer" src="./src/assets/img/compasses-intro-480.png" width="406" height="329"
+              alt="pair of compasses" srcset="
+                                ./src/assets/img/compasses-intro-406.png 406w" sizes="190px">
+          </picture>
+        </div>
+        <div class="intro__inf">
+          <div class="year-container">
+            <p class="year-letter year-letter--1 year-letter--left optima">1</p>
+            <p class="year-letter year-letter--left optima">5</p>
+            <p class="year-letter year-letter--right optima">5</p>
+            <p class="year-letter year-letter--right optima">7</p>
+          </div>
+          <p class="inf__text">Follow along with the story of how the pair of compasses came to define not just his business, but his dedication
+          through labor and constancy.</p>
+          <div class="inf__cta">
+            <p class="cta__text">
+              Let's dive in!
+            </p>
+            <svg class="cta__arrow" xmlns="http://www.w3.org/2000/svg" width="69" height="15" viewBox="0 0 69 15" fill="none">
+              <path d="M8.41504 1C14.0502 3.49735 27.6211 8.38872 36.8233 7.97537C46.0255 7.56201 57.6211 3.15289 62.2687 1"
+                stroke="#DC8C21" stroke-linecap="round" />
+            </svg>
+          </div>
+        </div>
+        <div class="intro__math">
+          <img class="math__img" src="./src/assets/img/intr0-right.svg"> 
+        </div>
+      </section>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
     <script type="module" src="./src/script.js"></script>
   </body>
