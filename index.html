@@ -107,7 +107,7 @@
           <p class="plantin__name optima">Christophe Plantin</p>
           <div class="plantin">
             <picture class="plantin-hero--pl">
-              <source sizes="(min-width: 600px) 615px, 320px" srcset="./src/assets/img/Plantin-hero-951.avif 951w,
+              <source sizes="(min-width: 600px) 615px, (min-width: 490px) 320px, 300px" srcset="./src/assets/img/Plantin-hero-951.avif 951w,
                                         ./src/assets/img/Plantin-hero-615.avif 615w,
                                         ./src/assets/img/Plantin-hero-590.avif 590w,
                                         ./src/assets/img/Plantin-hero-340.avif 340w" type="image/avif">
@@ -117,7 +117,7 @@
                                         ./src/assets/img/Plantin-hero-615.png 615w,
                                         ./src/assets/img/Plantin-hero-590.png 590w,
                                         ./src/assets/img/Plantin-hero-340.png 340w"
-                sizes="(min-width: 600px) 100px, 55px">
+                sizes="(min-width: 600px) 615px, (min-width: 490px) 320px, 300px">
             </picture>
             <picture class="plantin-hero--pa plantin__passer">
               <source sizes="190px" srcset="./src/assets/img/passer-hero-190.avif 190w,
@@ -130,8 +130,7 @@
                                 ./src/assets/img/passer-hero-55.png 55w" sizes="190px">
             </picture>
           </div>
-          <div class="hero__text">
-            <div class="introduction">
+          <div class="introduction">
               <h1 class="introduction__title optima">Hey there!</h1>
               <p class="introduction__text"> Plantin's vision is taking shape, but he needs a new workshop to make it happen. Ready to help him out?</p>
               <a class="navigation__button hero__button"
@@ -146,18 +145,18 @@
                 </svg>
                 <p class="button__text button__text--hero">Let's get it!</p>
               </a>
-            </div>
-            <div class="start hidden">
-              <h1 class="start__title optima">The Mark of <span class="start__title--low">the <span class="red">Compasses</span></span></h1>
+          </div>
+          <div class="start hidden ">
+              <h1 class="start__title optima">The Mark of <br><span class="start__title--low">the <span class="red">Compasses</span></span></h1>
               <p class="start__text"> 1576, <span class="bold">Christopher Plantin</span>, an ambitious printer, relocated his printing business to a house on the Vrijdagmarkt in
               Antwerp. He renamed the house “The Golden Compasses,” a symbol of precision, labor, and stability.</p>
-              <p class="start__text">The <span class="bold">pair of compasses</span> wasn't just in the name of his house. It was the symbol of his vision and the motto driving his
+              <p class="start__text start__text--right">The <span class="bold">pair of compasses</span> wasn't just in the name of his house. It was the symbol of his vision and the motto driving his
               revolutionary printing business.</p>
-            </div>
           </div>
         </div>
-          <div class="hero__house">
+          <div class="hero__house before">
             <p class="house__name optima">The golden <span class="bold big">Unicorn</span></p>
+            <canvas class="house__name--animation"></canvas>
             <picture class="house">
               <source sizes="(min-width: 1000px) 700px,(min-width: 600px) 615px, 440px" srcset="./src/assets/img/house-1750.avif 1750w,
                                                                 ./src/assets/img/house-615.avif 615w,

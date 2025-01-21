@@ -29,6 +29,8 @@ body {
   --sp-m-l: clamp(1.5rem, 0.8082rem + 2.5743vw, 3.125rem);
   /* Space s: 60px → 30px */
   --s-l-m: clamp(1.875rem, 4.5483rem + -2.9703vw, 3.75rem);
+  /* Space s: 27px → 60px */
+  --m-xl: clamp(1.6875rem, 1.05rem + 3vw, 3.75rem);
 
   --s-xxxl: 15rem;
   --s-0: 0.9375rem;
@@ -44,6 +46,8 @@ body {
   --f-s: clamp(1.0313rem, 1.1204rem + -0.099vw, 1.0938rem);
   /* Step 0: 18px → 24px */
   --f-s-m: clamp(1.125rem, 0.9653rem + 0.5941vw, 1.5rem);
+  /* Step 0: 17.5px → 20px */
+  --f-xs-0: clamp(1.0938rem, 1.0455rem + 0.2273vw, 1.25rem);
   /* Step 0: 18.5px → 20px */
   --f-0: clamp(1.1563rem, 1.1163rem + 0.1485vw, 1.25rem);
   /* Step 0: 20px → 28px */
@@ -67,6 +71,8 @@ body {
 
   /*  290px → 323px */
   --width-text: clamp(18.125rem, 17.4875rem + 3vw, 20.1875rem);
+  /* Space s: 200px → 330px */
+  --width-text-2: clamp(14rem, 9.9886rem + 11.8182vw, 20.625rem);
 }
 
 body {
@@ -78,6 +84,7 @@ body {
   font-style: normal;
   color: var(--black);
   line-height: 134%;
+  overflow-x: hidden;
 }
 
 @font-face {
@@ -197,6 +204,9 @@ a {
 header {
   width: 100vw;
   overflow: hidden;
+  background-image: url(../assets/img/texture-phone-hero.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .navigation {
@@ -359,22 +369,21 @@ header {
 
 /* hero*/
 
+.hero {
+  display: flex;
+  flex-flow: column;
+}
+
 .plantin {
   display: grid;
   grid-template-columns: 5fr 1fr;
   place-content: center;
   width: 21.5rem;
   grid-column: 1 / span 2;
-  grid-row: 2;
-  transform: translateX(clamp(-30%, -30%, 0%));
-  margin-top: var(--s-4);
-}
-
-.hero__text {
-  grid-column: 2/ span 2;
-  grid-row: 2;
-  margin-right: var(--space-m-3xl);
-  justify-self: end;
+  grid-row: 2/span 2;
+  transform: translateX(-30%);
+  margin-top: var(--s-l-m);
+  width: 18rem;
 }
 
 .plantin__passer {
@@ -404,7 +413,7 @@ html:not(.has-js) .hidden {
 }
 
 .introduction__text {
-  font-size: var(--f-0);
+  font-size: var(--f-xs-0);
   text-align: center;
   margin-bottom: var(--s-0);
 }
@@ -415,6 +424,10 @@ html:not(.has-js) .hidden {
   align-items: center;
   max-width: var(--width-text);
   gap: var(--s-1);
+  grid-column: 2/ span 2;
+  grid-row: 2;
+  margin-right: var(--space-m-3xl);
+  justify-self: end;
 }
 
 .hero__button {
@@ -441,6 +454,18 @@ html:not(.has-js) .hidden {
   grid-row: 1;
 }
 
+.plantin__name::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  top: 38%;
+  width: 4.6rem;
+  height: 0.8px;
+  background-color: var(--black);
+  transform: rotate(-80deg);
+  transform-origin: left bottom;
+}
+
 .house__name {
   font-size: var(--f-m-l);
 }
@@ -456,7 +481,90 @@ html:not(.has-js) .hidden {
   margin-top: var(--s-l-m);
 }
 
+.start {
+  grid-row: 1/ span 2;
+  grid-column: 2/span 2;
+  justify-self: center;
+  margin-right: var(--space-m-3xl);
+  display: flex;
+  flex-flow: column;
+}
+
+.start__title {
+  margin-left: -2rem;
+  margin-bottom: var(--m-xl);
+  line-height: 110%;
+}
+
+.start__text {
+  max-width: 22rem;
+}
+
+.start__title--low {
+  margin-left: 2rem;
+}
+
+.start__text--right {
+  margin-top: var(--sp-m-l);
+  margin-bottom: var(--s-2);
+  max-width: var(--width-text-2);
+  align-self: end;
+}
+
+.hero__house {
+  display: grid;
+  grid-template-columns: 25% 25% 50%;
+  background-image: url(../assets/img/background-house.svg);
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position-x: 100%;
+  background-position-y: 130%;
+}
+
+.house {
+  grid-column: 1/ span 3;
+  grid-row: 2;
+  width: 100%;
+  z-index: 1;
+  transform: translateX(8%);
+}
+
+.house__name, .house__name--animation {
+  grid-column: 2/span 2;
+  grid-row: 1;
+  justify-self: center;
+  margin-bottom: var(--f-s);
+}
+
+.house__name--animation{
+ grid-row: 1/span 2;
+ width: 213px;
+ align-self: start;
+}
+
+.sign,
+.sign-sold {
+  grid-column: 1/span 2;
+  grid-row: 2;
+  transform: translateX(4%) rotate(-10deg);
+}
+
+.hero__house.before {
+  margin-top: 4rem;
+}
+
 /* media queries */
+
+@media only screen and (min-width: 430px) {
+  .plantin {
+    width: 20rem;
+    transform: translateX(-20%);
+  }
+
+  .introduction {
+    justify-self: center;
+  }
+}
 
 @media only screen and (min-width: 600px) {
 
@@ -511,7 +619,6 @@ html:not(.has-js) .hidden {
     padding: var(--s-3) var(--space-m-3xl);
   }
 
-
   .close-btn {
     align-self: flex-start;
     order: 3;
@@ -560,6 +667,10 @@ html:not(.has-js) .hidden {
 
   .menu__story {
     margin-left: var(--s-xxxl);
+  }
+
+  header {
+    background-image: url(../assets/img/texture-desktop-hero.png);
   }
 
 }
