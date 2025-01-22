@@ -191,6 +191,7 @@
        </div>
       </header>
       <section class="intro" >
+        <h2 class="visually-hidden">Introduction</h2>
         <div class="intro__cp">
           <img class="cp__img cp__img--desktop" src="./src/assets/img/intro-left.svg" width="752">
           <img class="cp__img cp__img--phone" src="./src/assets/img/intro-left-phone.svg" width="160">
@@ -224,6 +225,68 @@
         </div>
         <div class="intro__math">
           <img class="math__img" src="./src/assets/img/intr0-right.svg"> 
+        </div>
+      </section>
+      <section class="stamp">
+        <div class="stamp__t-text"> 
+          <h2 class="stamp__title optima">The symbol</h2>
+          <p class="stamp__subtitle">In 1557, Christopher Plantin adopted a powerful symbol that would come to define his business. <span class="bold">The pair of compasses</span>
+          became his printmark. It would appear in various forms on the title pages of all Plantin Press books.</p>
+        </div>
+        <div class="interactive-note stamp__note">
+          <p class="note__text optima"><span class="desktop-show">Click</span> <span class="phone-show">Drag</span> the stamp and hover over the frame to uncover the iconic printmark!</p>
+          <img class="note__arrow" src="./src/assets/img/arrow-stamp.svg">
+        </div>
+        <div class="stamp__pickup">
+          <picture class="stamp__img">
+            <source sizes="(min-width: 800px) 321px, (min-width: 600px) 250px, 195px" srcset="./src/assets/img/stamp-321.avif 321w,
+                                                ./src/assets/img/stamp-250.avif 250w,
+                                                ./src/assets/img/stamp-195.avif 195w,
+                                                " type="image/avif">
+            <img class="stamp__img" src="./src/assets/img/stamp-250.png" width="250"
+              alt="stamp" srcset="
+                   ./src/assets/img/stamp-321.png 321w,
+                   ./src/assets/img/stamp-195.png 195w" sizes="(min-width: 800px) 321px, (min-width: 600px) 250px, 195px">
+          </picture>
+          <div class="pickup__interactive"> 
+            <picture class="pickup__inner">
+              <source sizes="(min-width: 800px) 200px, (min-width: 430px) 180px, 150px"
+                      srcset="./src/assets/img/inner-200.avif 200w,
+                              ./src/assets/img/inner-180.avif 180w,
+                              ./src/assets/img/inner-150.avif 570w,
+                              " type="image/avif">
+              <img class="pickup__inner" src="./src/assets/img/inner-200.png" width="180" alt="printmark itself" srcset="
+                                        ./src/assets/img/inner-180.png 180w,
+                                        ./src/assets/img/inner-150.png 150w"
+                sizes="(min-width: 800px) 200px, (min-width: 430px) 180px, 150px">
+            </picture>
+            <picture class="pickup__outer">
+              <source sizes="(min-width: 800px) 370px, (min-width: 430px) 325px, 170px" srcset="./src/assets/img/outer-370.avif 370w,
+                                                            ./src/assets/img/outer-325.avif 325w,
+                                                            ./src/assets/img/outer-170.avif 170w,
+                                                            " type="image/avif">
+              <img class="pickup__outer" src="./src/assets/img/outer-325.png" width="370" alt="outer of printmark" srcset="
+                              ./src/assets/img/outer-370.png 370w,
+                              ./src/assets/img/outer-170.png 170w"
+                sizes="(min-width: 800px) 370px, (min-width: 430px) 325px, 170px">
+            </picture>
+          </div>
+        </div>
+        <div id="stamp" class="stamp__bottom">
+          <p class="stamp__text2">The printmark came with a motto: <span class="bold">'Labore et Constantia'</span> which perfectly captured the principles that drove him. This
+          motto and the pair of compasses, fit perfectly together.</p>
+          <div class="extra-info">
+            <a href="#popup" class="extra-img">
+              <img src="./src/assets/img/extra.svg" width="70">
+            </a>
+            <div id="popup" class="extra-popup">
+              <a href="#stamp" class="close-popup">
+                <img src="./src/assets/img/close-popup.svg" width="35">
+              </a>
+              <h3 class="popup__title optima">It's everywhere</h3>
+              <p class="popup__info">In the museum, you can see the compasses everywhere. Look around during your visit and you will find it all around!</p>
+            </div>
+          </div>
         </div>
       </section>
     </div>

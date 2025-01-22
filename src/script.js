@@ -7,7 +7,12 @@ const mm = gsap.matchMedia();
 const hasReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const isSemiLarge = window.matchMedia("(min-width: 800px)").matches;
 const isLarge = window.matchMedia("(min-width: 1200px)").matches;
+const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 const loadingScreen = document.querySelector(".loading");
+
+let drag = false;
+const stamp = document.querySelector('.stamp__img');
+const inner = document.querySelector('.pickup__inner');
 
 const lottieInstance = (canvasSelector, src, loop) => {
   const instance = new DotLottie({
@@ -34,6 +39,7 @@ const init = () => {
   hamburgerMenu();
   heroAnimations();
   introAnimations();
+  stampAnimation();
 }
 
 const passerSwing = () => {
@@ -70,7 +76,6 @@ const hamburgerMenu = () => {
   document.querySelector('.hamburger').addEventListener('click', toggleMenu);
   document.querySelector('.close-btn').addEventListener('click', toggleMenu);
 }
-
 
 const toggleMenu = () => {
   const menu = document.querySelector('.menu');
@@ -264,8 +269,8 @@ const introAnimations = () => {
       trigger: ".intro",
       start: "top 60%",
       end: "top 20%",
+      toggleActions: "play complete reverse reset",
       scrub: 2,
-      markers: true
     },
   });
 
@@ -335,6 +340,63 @@ const introAnimations = () => {
     );
 
 }
+
+const stampAnimation = () => {
+  gsap.set(inner, { opacity: 0 });
+  if (isTouchDevice) {
+    document.addEventListener('touchmove', moveStamp);
+    stamp.addEventListener('touchstart', (e) => {
+      drag = true;
+      stamp.style.cursor = "grabbing";
+
+      e.preventDefault();
+    });
+    document.addEventListener('touchend', () => {
+      if (drag) {
+        drag = false;
+        stamp.style.cursor = "grab";
+        stamp.style.transform = `translate(${0}px, ${0}px)`;
+        inner.style.opacity = 0;
+      }
+    });
+  } else {
+    document.addEventListener('mousemove', moveStamp);
+    stamp.addEventListener('click', (e) => {
+      drag = !drag;
+      stamp.style.cursor = drag ? "grabbing" : "grab";
+
+      if (!drag) {
+        stamp.style.transform = `translate(${0}px, ${0}px)`;
+        inner.style.opacity = 0;
+      }
+    });
+  }
+}
+
+const moveStamp = (e) => {
+  if (drag) {
+    const x = e.clientX || e.touches[0].clientX;
+    const y = e.clientY || e.touches[0].clientY;
+
+    const posX = x - stamp.offsetWidth / 2;
+    const posY = y - stamp.offsetHeight;
+    stamp.style.transform = `translate(${posX}px, ${posY}px)`;
+
+    const stampRect = stamp.getBoundingClientRect();
+    const innerRect = inner.getBoundingClientRect();
+
+    if (
+      stampRect.left < innerRect.right &&
+      stampRect.right > innerRect.left &&
+      stampRect.top < innerRect.bottom &&
+      stampRect.bottom > innerRect.top
+    ) {
+      inner.style.opacity = 1;
+    } else {
+      inner.style.opacity = 0;
+    }
+  }
+};
 
 
 init();
