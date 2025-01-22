@@ -272,12 +272,11 @@
             </picture>
           </div>
         </div>
-        <div id="stamp" class="stamp__bottom">
           <p class="stamp__text2">The printmark came with a motto: <span class="bold">'Labore et Constantia'</span> which perfectly captured the principles that drove him. This
           motto and the pair of compasses, fit perfectly together.</p>
-          <div class="extra-info">
+          <div class="extra-info extra-info-stamp">
             <a href="#popup" class="extra-img">
-              <img src="./src/assets/img/extra.svg" width="70">
+              <img class="extra__img--pop" src="./src/assets/img/extra.svg" width="70">
             </a>
             <div id="popup" class="extra-popup">
               <a href="#stamp" class="close-popup">
@@ -285,9 +284,177 @@
               </a>
               <h3 class="popup__title optima">It's everywhere</h3>
               <p class="popup__info">In the museum, you can see the compasses everywhere. Look around during your visit and you will find it all around!</p>
-            </div>
           </div>
         </div>
+      </section>
+      <section class="horizontal">
+        <article class="history">
+          <div class="history__explain">
+            <h2 class="history__title optima">Three marks</h2>
+            <p class="history__subtitle">The famous pair of compasses, was Plantin's third print mark. Before he actually had two others:</p>
+          </div>
+          <div class="printmark1">
+            <h3 class="printmark1__name">A vine-dresser pruning tendrils around an elm tree</h3>
+            <img class="printmark1__number" src="./src/assets/img/printmark-1.svg" width="169">
+            <picture class="printmark1__img">
+              <source sizes="(min-width: 600px) 254px, 187px"
+                      srcset="./src/assets/img/printmark-1-254.avif 254w,
+                      ./src/assets/img/printmark-1-187.avif 187w,
+                       " type="image/avif">
+              <img class="printmark1__img" src="./src/assets/img/printmark-1-187.png" width="250" alt="prune and garden scissors" srcset="
+                               ./src/assets/img/printmark-1-187.png 187w,"
+                sizes="(min-width: 600px) 254px, 187px">
+            </picture>
+            <div class="quiz">
+              <div class="quiz__motto" id="quiz__motto">
+                <h2 class="quiz__title red"><span class="bold">Motto:</span></h2>
+                <p class="quiz__latin red" id="motto">"Exerce imperia et ramos compesce fluentes"</p>
+                <a class="quiz__guess button-grid svg__big" id="guess-button">
+                  <p class="button__text red">Guess Translation!</p>
+                  <svg class="button__img" xmlns="http://www.w3.org/2000/svg" width="226" height="57" viewBox="0 0 226 57" fill="none">
+                    <path 
+                      d="M35.3387 5H29.5C16.5213 5 6 15.5213 6 28.5V28.5C6 41.4787 16.5213 52 29.5 52H162.185M88.8387 5H196.5C209.479 5 220 15.5213 220 28.5V28.5C220 41.4787 209.479 52 196.5 52H193.25M78.4839 5H62.0887M42.2419 5H47.4194H52.5968"
+                      stroke="#B10B3A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                    <path 
+                      d="M31.7097 1H28.5C13.3122 1 1 13.3122 1 28.5V28.5C1 43.6878 13.3122 56 28.5 56H164.484M87.7097 1H197.5C212.688 1 225 13.3122 225 28.5V28.5C225 43.6878 212.688 56 197.5 56H197M76.871 1H59.7097M38.9355 1H44.3548H49.7742"
+                      stroke="#B10B3A" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+              <div  class="quiz__input" id="quiz__input" >
+                <img class="quiz__close" src="./src/assets/img/close-quiz.svg" width="50">
+                <h2 class="quiz__title red">What does this mean?</h2>
+                <p class="quiz__latin red" id="motto-quiz"><span class="bold">"Exerce imperia et ramos compesce fluentes"</span></p>
+                <div class="quiz__options options">
+                  <a class="option button-grid" data-correct="false">
+                    <p class="button__text red button__text--quiz">A. Practice patience and bind the wandering pages</p>
+                    <svg class="button__img" width="293" height="66" viewBox="0 0 296 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path class="svg__red"
+                        d="M35.3121 67H34C15.7746 67 1 52.2254 1 34V34C1 15.7746 15.7746 1 34 1H35.3121M261.517 1V1C279.743 1 294.559 15.7746 294.559 34V34C294.559 52.2254 279.743 67 261.517 67V67"
+                        stroke="#333332" stroke-width="2" stroke-linecap="round" />
+                      <path class="svg__red" d="M38.4497 1H264.357" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
+                      <path class="svg__red" d="M39.6577 67H263.149" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
+                    </svg>
+                  </a>
+                  <a class="option button-grid" data-correct="false">
+                    <p class="button__text red button__text--quiz">B. Expand your reach and guide the flowing ink</p>
+                    <svg class="button__img" width="293" height="66" viewBox="0 0 296 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path class="svg__red"
+                        d="M35.3121 67H34C15.7746 67 1 52.2254 1 34V34C1 15.7746 15.7746 1 34 1H35.3121M261.517 1V1C279.743 1 294.559 15.7746 294.559 34V34C294.559 52.2254 279.743 67 261.517 67V67"
+                        stroke="#333332" stroke-width="2" stroke-linecap="round" />
+                      <path class="svg__red" d="M38.4497 1H264.357" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
+                      <path class="svg__red" d="M39.6577 67H263.149" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
+                    </svg>
+                  </a>
+                  <a class="option button-grid" data-correct="true">
+                    <p class="button__text red button__text--quiz">C. Exercise authority and restrain the flowing branches</p>
+                    <svg class="button__img" width="293" height="66" viewBox="0 0 296 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path class="svg__red"
+                        d="M35.3121 67H34C15.7746 67 1 52.2254 1 34V34C1 15.7746 15.7746 1 34 1H35.3121M261.517 1V1C279.743 1 294.559 15.7746 294.559 34V34C294.559 52.2254 279.743 67 261.517 67V67"
+                        stroke="#333332" stroke-width="2" stroke-linecap="round" />
+                      <path class="svg__red" d="M38.4497 1H264.357" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
+                      <path class="svg__red" d="M39.6577 67H263.149" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="quiz-feedback">
+                <canvas class="feedback feedback1"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="printmark2">
+            <h3 class="printmark2__name">A vine tendril</h3>
+            <img class="printmark2__number" src="./src/assets/img/printmark2.svg" width="202">
+            <picture class="printmark2__img">
+              <source sizes="(min-width: 600px) 240px, 180px" srcset="./src/assets/img/printmark-2-240.avif 240w,
+                                ./src/assets/img/printmark-2-180.avif 180w,
+                                 " type="image/avif">
+              <img class="printmark2__img" src="./src/assets/img/printmark-2-240.png" width="180" alt="leaf with tendril"
+                srcset="
+                        ./src/assets/img/printmark-2-180.png 180w," sizes="(min-width: 600px) 240px, 180px">
+            </picture>
+            <div class="quiz">
+              <div class="quiz__motto" id="quiz__motto">
+                <h2 class="quiz__title red"><span class="bold">Motto:</span></h2>
+                <p class="quiz__latin red" id="motto">“Christus vera vitis”</p>
+                <a class="quiz__guess button-grid svg__big" id="guess-button">
+                  <p class="button__text red">Guess Translation!</p>
+                  <svg class="button__img" xmlns="http://www.w3.org/2000/svg" width="226" height="57" viewBox="0 0 226 57"
+                    fill="none">
+                    <path
+                      d="M35.3387 5H29.5C16.5213 5 6 15.5213 6 28.5V28.5C6 41.4787 16.5213 52 29.5 52H162.185M88.8387 5H196.5C209.479 5 220 15.5213 220 28.5V28.5C220 41.4787 209.479 52 196.5 52H193.25M78.4839 5H62.0887M42.2419 5H47.4194H52.5968"
+                      stroke="#B10B3A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M31.7097 1H28.5C13.3122 1 1 13.3122 1 28.5V28.5C1 43.6878 13.3122 56 28.5 56H164.484M87.7097 1H197.5C212.688 1 225 13.3122 225 28.5V28.5C225 43.6878 212.688 56 197.5 56H197M76.871 1H59.7097M38.9355 1H44.3548H49.7742"
+                      stroke="#B10B3A" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+              <div class="quiz__input" id="quiz__input">
+                <img class="quiz__close quiz__close--2" src="./src/assets/img/close-quiz.svg" width="50">
+                <h2 class="quiz__title red">What does this mean?</h2>
+                <p class="quiz__latin red" id="motto-quiz"><span class="bold">“Christus vera vitis”</span>
+                </p>
+                <div class="quiz__options options">
+                  <a class="option button-grid" data-correct="true">
+                    <p class="button__text red button__text--quiz">A. Christ is the true vine</p>
+                    <svg class="button__img" width="245" height="44" viewBox="0 0 245 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path class="svg__red"
+                        d="M29.4026 43H22C10.402 43 1 33.598 1 22V22C1 10.402 10.402 1 22 1H29.4026M216.649 1H223C234.598 1 244 10.402 244 22V22C244 33.598 234.598 43 223 43H216.649"
+                        stroke="#333332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      <path class="svg__red" d="M32 1H219" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
+                      <path class="svg__red" d="M33 43H218" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
+                    </svg>
+                  </a>
+                  <a class="option button-grid" data-correct="false">
+                    <p class="button__text red button__text--quiz">B. Follow the vision</p>
+                    <svg class="button__img" width="245" height="44" viewBox="0 0 245 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path class="svg__red"
+                        d="M29.4026 43H22C10.402 43 1 33.598 1 22V22C1 10.402 10.402 1 22 1H29.4026M216.649 1H223C234.598 1 244 10.402 244 22V22C244 33.598 234.598 43 223 43H216.649"
+                        stroke="#333332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      <path class="svg__red" d="M32 1H219" stroke="#333332" stroke-width="0.7" stroke-linecap="round"
+                        stroke-dasharray="5 5" />
+                      <path class="svg__red" d="M33 43H218" stroke="#333332" stroke-width="0.7" stroke-linecap="round"
+                        stroke-dasharray="5 5" />
+                    </svg>
+                  </a>
+                  <a class="option button-grid" data-correct="false">
+                    <p class="button__text red button__text--quiz">C. Christ was a printer</p>
+                    <svg class="button__img" width="245" height="44" viewBox="0 0 245 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path class="svg__red"
+                        d="M29.4026 43H22C10.402 43 1 33.598 1 22V22C1 10.402 10.402 1 22 1H29.4026M216.649 1H223C234.598 1 244 10.402 244 22V22C244 33.598 234.598 43 223 43H216.649"
+                        stroke="#333332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      <path class="svg__red" d="M32 1H219" stroke="#333332" stroke-width="0.7" stroke-linecap="round"
+                        stroke-dasharray="5 5" />
+                      <path class="svg__red" d="M33 43H218" stroke="#333332" stroke-width="0.7" stroke-linecap="round"
+                        stroke-dasharray="5 5" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="quiz-feedback">
+                <canvas class="feedback feedback2"></canvas>
+              </div>
+            </div>
+          </div>
+          <div id="history" class="extra-info extra-info-history">
+            <a href="#popup-history" class="extra-img">
+              <img class="extra__img--pop" src="./src/assets/img/extra.svg" width="70">
+            </a>
+            <div id="popup-history" class="extra-popup">
+              <a href="#history" class="close-popup">
+                <img src="./src/assets/img/close-popup.svg" width="35">
+              </a>
+              <h3 class="popup__title optima">Mystery</h3>
+              <p class="popup__info">Sadly, there aren't explicit images of these first 2 marks. There are other printer marks online, but it is not clear if
+              these were his first ones. This remains a big mystery.</p>
+            </div>
+          </div>
+        </article>
+        <article class="third">
+
+        </article>
       </section>
     </div>
 

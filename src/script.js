@@ -14,12 +14,13 @@ let drag = false;
 const stamp = document.querySelector('.stamp__img');
 const inner = document.querySelector('.pickup__inner');
 
-const lottieInstance = (canvasSelector, src, loop) => {
+const lottieInstance = (canvasSelector, src, loop, marker) => {
   const instance = new DotLottie({
     autoplay: !hasReducedMotion,
     loop: !hasReducedMotion && loop,
     canvas: document.querySelector(canvasSelector),
     src: src,
+    marker: marker
   });
 
   if (hasReducedMotion) {
@@ -29,6 +30,7 @@ const lottieInstance = (canvasSelector, src, loop) => {
   }
 
   return instance;
+  
 };
 
 const init = () => {
@@ -40,6 +42,7 @@ const init = () => {
   heroAnimations();
   introAnimations();
   stampAnimation();
+  quizInteraction();
 }
 
 const passerSwing = () => {
@@ -343,11 +346,24 @@ const introAnimations = () => {
 
 const stampAnimation = () => {
   gsap.set(inner, { opacity: 0 });
+  let stampTween
+
+  if (!hasReducedMotion) {
+    stampTween = gsap.to(stamp, {
+      y: -10,
+      duration: 1,
+      yoyo: true,
+      repeat: -1,
+      ease: "power1.inOut"
+    });
+  }
+
   if (isTouchDevice) {
     document.addEventListener('touchmove', moveStamp);
     stamp.addEventListener('touchstart', (e) => {
       drag = true;
       stamp.style.cursor = "grabbing";
+      stampTween.pause();
 
       e.preventDefault();
     });
@@ -357,6 +373,7 @@ const stampAnimation = () => {
         stamp.style.cursor = "grab";
         stamp.style.transform = `translate(${0}px, ${0}px)`;
         inner.style.opacity = 0;
+        stampTween.restart();
       }
     });
   } else {
@@ -368,7 +385,9 @@ const stampAnimation = () => {
       if (!drag) {
         stamp.style.transform = `translate(${0}px, ${0}px)`;
         inner.style.opacity = 0;
+        stampTween.restart();
       }
+      stampTween.pause();
     });
   }
 }
@@ -398,5 +417,99 @@ const moveStamp = (e) => {
   }
 };
 
+const initializeEventListeners = (quizContainer) => {
+  const quizMotto = quizContainer.querySelector(".quiz__motto");
+  const quizInput = quizContainer.querySelector(".quiz__input");
+  const quizFeedback = quizContainer.querySelector(".quiz-feedback");
+  const feedbackCanvas = quizContainer.querySelector(".feedback");
+  const guessButton = quizContainer.querySelector(".quiz__guess");
+  const quizClose = quizContainer.querySelector(".quiz__close");
+  const options = quizContainer.querySelectorAll(".option");
+
+  guessButton.addEventListener("click", () => {
+    quizMotto.style.display = "none";
+    quizInput.style.display = "flex";
+  });
+
+  quizClose.addEventListener("click", () => {
+    quizMotto.style.display = "flex";
+    quizInput.style.display = "none";
+    quizFeedback.style.display = "none";
+    feedbackCanvas.innerHTML = "";
+  });
+
+  options.forEach((option) => {
+    option.addEventListener("click", () => handleOptionClick(option, quizContainer));
+  });
+};
+
+const handleOptionClick = (option, quizContainer) => {
+  const quizMotto = quizContainer.querySelector(".quiz__motto");
+  const quizInput = quizContainer.querySelector(".quiz__input");
+  const mottoLatin = quizContainer.querySelector(".quiz__latin");
+
+  let canvas;
+  let translation;
+
+  if (quizContainer.classList.contains('printmark1')) {
+    canvas = '.feedback1';
+    translation = `"Exercise authority and restrain the flowing branches"`;
+  } else {
+    canvas = '.feedback2';
+    translation = `"Christ is the true vine"`;
+  }
+
+  const isCorrect = option.getAttribute("data-correct") === "true";
+
+  if (isCorrect) {
+    lottieInstance(canvas, `${import.meta.env.BASE_URL}assets/quizfeedback.json`, false, 'Correct');
+  } else {
+    lottieInstance(canvas, `${import.meta.env.BASE_URL}assets/quizfeedback.json`, false, 'Wrong');
+  }
+
+  setTimeout(() => {
+    if (isCorrect) {
+      quizMotto.innerHTML = `<div class="quiz__motto" id="quiz__motto">
+            <h2 class="quiz__title red"><span class="bold">Correct!</span></h2>
+            <p class="quiz__latin red" id="motto">${mottoLatin.textContent}</p>
+            <p class="quiz__latin red" id="motto">${translation}</p>
+          </div>`;
+    } else {
+      quizMotto.innerHTML = `<div class="quiz__motto" id="quiz__motto">
+            <h2 class="quiz__title red"><span class="bold">Incorrect, Let's try again!</span></h2>
+            <p class="quiz__latin red" id="motto">${mottoLatin.textContent}</p>
+            <a class="quiz__guess button-grid svg__big" id="guess-button">
+              <p class="button__text red">Guess Translation!</p>
+              <svg class="button__img" xmlns="http://www.w3.org/2000/svg" width="226" height="57" viewBox="0 0 226 57"
+                fill="none">
+                <path
+                  d="M35.3387 5H29.5C16.5213 5 6 15.5213 6 28.5V28.5C6 41.4787 16.5213 52 29.5 52H162.185M88.8387 5H196.5C209.479 5 220 15.5213 220 28.5V28.5C220 41.4787 209.479 52 196.5 52H193.25M78.4839 5H62.0887M42.2419 5H47.4194H52.5968"
+                  stroke="#B10B3A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M31.7097 1H28.5C13.3122 1 1 13.3122 1 28.5V28.5C1 43.6878 13.3122 56 28.5 56H164.484M87.7097 1H197.5C212.688 1 225 13.3122 225 28.5V28.5C225 43.6878 212.688 56 197.5 56H197M76.871 1H59.7097M38.9355 1H44.3548H49.7742"
+                  stroke="#B10B3A" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>`;
+    }
+    quizInput.style.display = "none";
+    quizMotto.style.display = "flex";
+
+    initializeEventListeners(quizContainer);
+  }, 3000);
+
+  quizInput.style.display = "none";
+};
+
+const setupQuiz = (quizContainer) => {
+  initializeEventListeners(quizContainer);
+};
+
+const quizInteraction = () => {
+  const quizzes = document.querySelectorAll(".quiz");
+  quizzes.forEach((quiz) => {
+    setupQuiz(quiz.closest(".printmark1, .printmark2"));
+  });
+};
 
 init();
