@@ -30,7 +30,7 @@ const lottieInstance = (canvasSelector, src, loop, marker) => {
   }
 
   return instance;
-  
+
 };
 
 const init = () => {
@@ -44,6 +44,7 @@ const init = () => {
   stampAnimation();
   quizInteraction();
   drawCircle();
+  horizontalScroll();
 }
 
 const passerSwing = () => {
@@ -531,9 +532,9 @@ const drawCircle = () => {
 
     if (!isDragging) {
       compassLeg.style.transform = `rotate(${0}deg)`;
-      resetButton.style.display = 'block'; 
+      resetButton.style.display = 'block';
     } else {
-      startX = e.clientX; 
+      startX = e.clientX;
     }
   });
 
@@ -546,14 +547,15 @@ const drawCircle = () => {
     }
     if (isDragging && !isTouchDevice) {
       isDragging = false;
-      resetButton.style.display = 'block';}
+      resetButton.style.display = 'block';
+    }
   });
 
   window.addEventListener('mousemove', (e) => {
     if (isDragging) {
       const rotateX = e.clientX - startX; //calculate how far mouse has moved since pickup
-      currentRotation = startRotation - rotateX * 0.45; 
-      currentRotation = Math.min(maxRotation, Math.max(-maxRotation, currentRotation)); 
+      currentRotation = startRotation - rotateX * 0.45;
+      currentRotation = Math.min(maxRotation, Math.max(-maxRotation, currentRotation));
       compassLeg.style.transform = `rotate(${currentRotation}deg)`;
 
       maxRotationReached = Math.max(maxRotationReached, Math.abs(currentRotation));
@@ -567,14 +569,14 @@ const drawCircle = () => {
   window.addEventListener('touchmove', (e) => {
     if (isDragging && isTouchDevice) {
       const rotateX = e.touches[0].clientX - startX;
-      currentRotation = startRotation - rotateX * 0.45; 
+      currentRotation = startRotation - rotateX * 0.45;
       currentRotation = Math.min(maxRotation, Math.max(-maxRotation, currentRotation));
 
       gsap.to(compassLeg, { rotation: currentRotation, duration: 0.1 });
 
       maxRotationReached = Math.max(maxRotationReached, Math.abs(currentRotation));
 
-      const radius = maxRotationReached * 3; 
+      const radius = maxRotationReached * 3;
       compassCircle.style.width = `${radius}px`;
       compassCircle.style.height = `${radius}px`;
     }
@@ -593,6 +595,25 @@ const drawCircle = () => {
     resetButton.style.display = 'none';
     maxRotationReached = 0;
   });
+}
+
+const horizontalScroll = () => {
+  if (isSemiLarge) {
+    const horizontal = document.querySelector(".horizontal");
+
+    gsap.to(horizontal, {
+      x: () => -(horizontal.scrollWidth - window.innerWidth),
+      ease: "none",
+      scrollTrigger: {
+        trigger: horizontal,
+        pin: horizontal,
+        scrub: 1,
+        start: "bottom bottom",
+        end: () => `+=${horizontal.scrollWidth}`,
+        markers: true,
+      },
+    });
+  }
 }
 
 init();

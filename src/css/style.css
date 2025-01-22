@@ -878,6 +878,7 @@ html:not(.has-js) .nojs-hide {
   flex-flow: column;
   padding: 0 var(--space-m-3xl);
   margin-top: var(--s-xl-xl);
+  width: 100vw;
 }
 
 .history__title {
@@ -1053,7 +1054,8 @@ html:not(.has-js) .quiz__guess {
 .third {
   display: grid;
   overflow-x: hidden;
-  margin-top: var(--s-4)
+  margin-top: var(--s-4);
+  width: 100vw;
 }
 
 .third__bgtext,
@@ -1141,6 +1143,11 @@ html:not(.has-js) .quiz__guess {
 
 .compasses__reset:hover {
   border: 0.2rem solid var(--red);
+}
+
+.history,
+.third {
+  flex: 0 0 100vw;
 }
 
 /* media */
@@ -1242,6 +1249,14 @@ html:not(.has-js) .quiz__guess {
 }
 
 @media only screen and (min-width: 800px) {
+  html.has-js .horizontal {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    width: 100vw;
+    height: 100vh;
+  }
+
   .compasses__reset {
     top: 30%;
     transform: translateX(-300%);
