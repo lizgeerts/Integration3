@@ -43,6 +43,7 @@ const init = () => {
   introAnimations();
   stampAnimation();
   quizInteraction();
+  drawCircle();
 }
 
 const passerSwing = () => {
@@ -511,5 +512,87 @@ const quizInteraction = () => {
     setupQuiz(quiz.closest(".printmark1, .printmark2"));
   });
 };
+
+const drawCircle = () => {
+  const compassLeg = document.querySelector('.compasses__leg');
+  const compassCircle = document.querySelector('.compasses__circle');
+  const resetButton = document.getElementById('resetButton');
+
+  let isDragging = false;
+  let startX = 0;
+  let startRotation = 0;
+  let currentRotation = 0;
+  let maxRotationReached = 0;
+  const maxRotation = 110;
+
+  compassLeg.addEventListener('click', (e) => {
+    isDragging = !isDragging;
+    compassLeg.style.cursor = isDragging ? "grabbing" : "grab";
+
+    if (!isDragging) {
+      compassLeg.style.transform = `rotate(${0}deg)`;
+      resetButton.style.display = 'block'; 
+    } else {
+      startX = e.clientX; 
+    }
+  });
+
+  compassLeg.addEventListener('touchstart', (e) => {
+    isDragging.toggl
+    if (isTouchDevice) {
+      e.preventDefault();
+      isDragging = true;
+      startX = e.touches[0].clientX;
+    }
+    if (isDragging && !isTouchDevice) {
+      isDragging = false;
+      resetButton.style.display = 'block';}
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+      const rotateX = e.clientX - startX; //calculate how far mouse has moved since pickup
+      currentRotation = startRotation - rotateX * 0.45; 
+      currentRotation = Math.min(maxRotation, Math.max(-maxRotation, currentRotation)); 
+      compassLeg.style.transform = `rotate(${currentRotation}deg)`;
+
+      maxRotationReached = Math.max(maxRotationReached, Math.abs(currentRotation));
+
+      const radius = maxRotationReached * 4;
+      compassCircle.style.width = `${radius}px`;
+      compassCircle.style.height = `${radius}px`;
+    }
+  });
+
+  window.addEventListener('touchmove', (e) => {
+    if (isDragging && isTouchDevice) {
+      const rotateX = e.touches[0].clientX - startX;
+      currentRotation = startRotation - rotateX * 0.45; 
+      currentRotation = Math.min(maxRotation, Math.max(-maxRotation, currentRotation));
+
+      gsap.to(compassLeg, { rotation: currentRotation, duration: 0.1 });
+
+      maxRotationReached = Math.max(maxRotationReached, Math.abs(currentRotation));
+
+      const radius = maxRotationReached * 3; 
+      compassCircle.style.width = `${radius}px`;
+      compassCircle.style.height = `${radius}px`;
+    }
+  });
+
+  window.addEventListener('touchend', () => {
+    if (isDragging && isTouchDevice) {
+      isDragging = false;
+      resetButton.style.display = 'block';
+    }
+  });
+
+  resetButton.addEventListener('click', () => {
+    gsap.to(compassLeg, { rotation: 0, duration: 0.5 });
+    gsap.to(compassCircle, { width: 0, height: 0, duration: 0.5 });
+    resetButton.style.display = 'none';
+    maxRotationReached = 0;
+  });
+}
 
 init();
