@@ -1,0 +1,404 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+:root {
+  --bg-dark: #F1EFE9;
+  --bg: #FBFAF7;
+  --red: #B10B3A;
+  --black: #333332;
+  --orange: #E89D39;
+  --orange-d: #DC8C21;
+
+  /* 24 -> 90 */
+  --space-m-3xl: clamp(1.5rem, 0.3214rem + 5.8929vw, 5.625rem);
+  /* 160px -> 30px */
+  --s-xxl: clamp(1.875rem, 20.666rem + -50.1931vw, 10rem);
+  /* Space s: 24px → 50px */
+  --sp-m-l: clamp(1.5rem, 0.8082rem + 2.5743vw, 3.125rem);
+  /* Space s: 60px → 30px */
+  --s-l-m: clamp(1.875rem, 4.5483rem + -2.9703vw, 3.75rem);
+  /* Space s: 60px → 22px */
+  --s-l-s: clamp(1.375rem, 4.4841rem + -3.4545vw, 3.75rem);
+  /* Space s: 27px → 60px */
+  --m-xl: clamp(1.6875rem, 1.05rem + 3vw, 3.75rem);
+  /*  64px → 110px */
+  --s-l-xl: clamp(4rem, -4.1458rem + 38.3333vw, 9rem);
+  /* Space s: 16px → 30px */
+  --s-s: clamp(1rem, 0.7295rem + 1.2727vw, 1.875rem);
+  /* Space s: 27px → 35px */
+  --s-s-m: clamp(1.6875rem, 1.5083rem + 0.7547vw, 2.1875rem);
+  /* Space s: 60px → 100px */
+  --s-l-xl-2: clamp(3.75rem, -0.5682rem + 18.1818vw, 6.25rem);
+  /* Space s: 80px → 192px */
+  --s-intro: clamp(5rem, 1.7561rem + 13.6585vw, 12rem);
+  /* Space s: 80px → 125px */
+  --s-xl-xl: clamp(5rem, 3.9917rem + 4.2453vw, 7.8125rem);
+  /* Space s: 240px → 300px */
+  --s-xxl-xxl: clamp(8rem, 7rem + 5.6604vw, 18.75rem);
+
+  /* Space s: 0px → 96px */
+  --special-hero: clamp(0rem, -30rem + 40vw, 6rem);
+
+  --s-xxxl: 15rem;
+  --s-0: 0.9375rem;
+  /*15*/
+  --s-1: 1rem;
+  --s-2: 2rem;
+  --s-3: 2.5rem;
+  --s-4: 3rem;
+
+  --f-5: 2.1875rem;
+  --f-16: 1.03125rem;
+  --f-17: 1.09375rem;
+
+  /* Step 0: 17.5px → 16.5px */
+  --f-s: clamp(1.0313rem, 1.1204rem + -0.099vw, 1.0938rem);
+  /* Step 0: 18px → 24px */
+  --f-s-m: clamp(1.125rem, 0.9653rem + 0.5941vw, 1.5rem);
+  /* Step 0: 17.5px → 20px */
+  --f-xs-0: clamp(1.0938rem, 1.0455rem + 0.2273vw, 1.25rem);
+  /* Step 0: 18.5px → 20px */
+  --f-0: clamp(1.1563rem, 1.1163rem + 0.1485vw, 1.25rem);
+  /* Step 0: 20px → 28px */
+  --f-m-l: clamp(1.25rem, 1.0371rem + 0.7921vw, 1.75rem);
+  /* Step 1: 20px → 23.9px */
+  --f-1-2: clamp(1.25rem, 1.1787rem + 0.3566vw, 1.4996rem);
+  /* Step 1: 22.2px → 24px */
+  --f-1: clamp(1.3875rem, 1.3396rem + 0.1782vw, 1.5rem);
+  /* Step 0: 22px → 31.9px */
+  --f-1-l: clamp(1.375rem, 1.1116rem + 0.9802vw, 1.9938rem);
+  /* Step 1: 24px → 27.6px */
+  --f-2: clamp(1.5rem, 1.4042rem + 0.3564vw, 1.725rem);
+  /* Step 0: 27px → 42.6px */
+  --f-3: clamp(1.5rem, 1.2rem + 1.4717vw, 2.6625rem);
+  /*  80px → 230px */
+  --f-big: clamp(5rem, 1.0087rem + 14.8515vw, 14.375rem);
+  /* Step -1: 16.6667px → 19.1667px */
+  --f-xs: clamp(1.0417rem, 0.9751rem + 0.2475vw, 1.1979rem);
+  /* Step 0: 20px → 23px */
+  --f-m: clamp(1.25rem, 1.1702rem + 0.297vw, 1.4375rem);
+  /* Step 2: 25px → 31.9px */
+  --f-l: clamp(1.5625rem, 1.4378rem + 0.6236vw, 1.999rem);
+  /* Step 3: 31.2px → 42.6px */
+  --f-l-xl: clamp(1.9531rem, 1.7498rem + 1.0165vw, 2.6647rem);
+  /* Step 4: 39px → 56.8px */
+  --f-xl: clamp(2.4414rem, 2.1241rem + 1.5866vw, 3.552rem);
+  /* Step 0: 180px → 200px */
+  --f-xxxl: clamp(11.25rem, 10.8019rem + 1.8868vw, 12.5rem);
+  /* Step 0: 115px → 230px */
+  --f-xxxxl: clamp(5rem, 2.4882rem + 13.2075vw, 14.375rem);
+  /* Space s: 18px → 24px */
+  --f-quote: clamp(1.1875rem, 0.996rem + 0.8065vw, 1.5rem);
+
+  /* Step 0: 32px → 58px */
+  --f-words: clamp(2rem, 1.4175rem + 2.4528vw, 3.625rem);
+
+  /*  290px → 323px */
+  --width-text: clamp(18.125rem, 17.4875rem + 3vw, 20.1875rem);
+  /* Space s: 200px → 330px */
+  --width-text-2: clamp(11.875rem, 2.8846rem + 42.3077vw, 18.75rem);
+
+  --f-title: clamp(3.4375rem, 2.9782rem + 1.934vw, 4.7188rem);
+}
+
+body {
+  background-color: var(--bg);
+  margin: 0 auto;
+  font-family: "Yaldevi", serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  color: var(--black);
+  line-height: 134%;
+  overflow-x: hidden;
+  /*overflow-y: hidden;*/
+}
+
+@font-face {
+  font-family: 'Optima';
+  src: url('../assets/fonts/OPTIMA.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.optima {
+  font-family: 'Optima', sans-serif
+}
+
+a {
+  text-decoration: none;
+}
+
+/* button */
+
+.back {
+  display: grid;
+  place-items: center;
+  width: fit-content;
+  position: absolute;
+  right: var(--space-m-3xl);
+  top: 2.5rem;
+  z-index: 10;
+}
+
+.back:hover .back__arrow {
+  transform: translateX(10px);
+}
+
+.back__arrow {
+  transition: transform 0.3s ease-in-out;
+}
+
+.back__inside,
+.back__img {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.back__inside {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  gap: var(--s-0);
+}
+
+.back__text {
+  color: var(--red);
+  font-size: var(--f-1)
+}
+
+.back__img {
+  width: clamp(10.4375rem, 9.7097rem + 3.0645vw, 11.625rem);
+}
+
+.show-desktop {
+  display: none;
+}
+
+.title {
+  font-size: var(--f-title);
+  margin-left: 4.5rem;
+  margin-top: 1rem;
+}
+
+.title,
+.title__img {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.constancy__title {
+  display: grid;
+  width: fit-content;
+  align-items: center;
+  margin-top: var(--s-l-m);
+}
+
+.constancy {
+  margin: 0 var(--space-m-3xl);
+  max-width: 30rem
+}
+
+.constancy__text--2 {
+  margin-top: 1.5625rem;
+  margin-bottom: var(--s-s-m);
+}
+
+.family {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  overflow-x: hidden;
+}
+
+.family--jan {
+  grid-area: 1 / 2;
+  margin-left: -10%;
+}
+
+.family--franciscus {
+  grid-area: 2 / 2;
+}
+
+.family--martina {
+  align-self: end;
+}
+
+@media (pointer: fine) {
+  .show-phone {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 460px) {
+  .family {
+    margin: 0 var(--space-m-3xl);
+    justify-items: center;
+  }
+
+  .family--jan {
+    grid-area: 1 / 2;
+    margin-left: 0;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .family {
+    justify-items: stretch;
+    row-gap: var(--s-0);
+  }
+
+}
+
+@media only screen and (min-width: 840px) {
+  .show-plantin {
+    display: block;
+  }
+
+  .family--plantin {
+    position: absolute;
+    top: 25%;
+    right: var(--space-m-3xl);
+  }
+
+}
+
+@media only screen and (min-width: 1000px) {
+  .show-desktop {
+    display: block;
+  }
+
+  .constancy__total {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 var(--space-m-3xl);
+  }
+
+  .constancy {
+    width: 60%;
+    margin: 0;
+  }
+
+  .family--plantin {
+    position: absolute;
+    top: 10%;
+  }
+
+  .family {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .family--franciscus {
+    grid-area: 1 / 1;
+    margin-top: 2rem;
+    margin-left: -1rem;
+  }
+
+  .family--jan {
+    grid-area: 2 / 2;
+    margin-top: 3rem;
+    margin-right: -1rem;
+    justify-self: end;
+  }
+
+  .family--martina {
+    grid-area: 2 / 1;
+    margin-top: -3rem;
+    margin-left: 1rem;
+  }
+
+  .family--franciscus-w {
+    grid-area: 1 / 2;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    justify-self: end;
+  }
+
+  .family--jeanne {
+    grid-row: 1/span 2;
+    grid-column: 1/span 2;
+    place-self: center;
+    margin-left: -3rem;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .constancy__total {
+    display: flex;
+    flex-flow: row;
+    padding-right: 0;
+    gap: var(--f-m);
+  }
+
+  .title__img {
+    width: 240px;
+  }
+
+  .title {
+    margin-left: 8rem;
+  }
+
+  .family {
+    grid-template-rows: repeat(3, 15rem);
+    grid-template-columns: repeat(3, 33%);
+    margin: 0;
+    overflow-y: hidden;
+    margin-bottom: var(--space-m-3xl);
+  }
+
+  .family--plantin {
+    position: static;
+    grid-row: 2/ span 2;
+    grid-column: 3;
+    align-self: end;
+  }
+
+  .family--franciscus {
+    grid-area: 2 / 2;
+    margin-top: 5rem;
+    margin-left: -1rem;
+  }
+
+  .family--jan {
+    grid-area: 1 / 2;
+    margin-top: 3rem;
+    margin-right: -1rem;
+    justify-self: end;
+  }
+
+  .family--martina {
+    grid-row: 1/span 2;
+    grid-column: 1;
+    margin-bottom: 5rem;
+    margin-left: 1rem;
+  }
+
+  .family--franciscus-w {
+    grid-area: 2 / 3;
+    margin-top: -6rem;
+    margin-right: 1rem;
+    justify-self: end;
+    align-self: start
+  }
+
+  .family--jeanne {
+    grid-area: 3 / 1;
+    place-self: center;
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+  }
+}

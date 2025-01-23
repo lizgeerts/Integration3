@@ -99,6 +99,8 @@ body {
   --f-xxxl: clamp(11.25rem, 10.8019rem + 1.8868vw, 12.5rem);
   /* Step 0: 115px → 230px */
   --f-xxxxl: clamp(5rem, 2.4882rem + 13.2075vw, 14.375rem);
+  /* Space s: 18px → 24px */
+  --f-quote: clamp(1.1875rem, 0.996rem + 0.8065vw, 1.5rem);
 
   /* Step 0: 32px → 58px */
   --f-words: clamp(2rem, 1.4175rem + 2.4528vw, 3.625rem);
@@ -125,7 +127,6 @@ body {
 html:not(.has-js) body {
   overflow-y: auto;
 }
-
 
 @font-face {
   font-family: 'Optima';
@@ -1430,12 +1431,12 @@ html.has-js .koepel__reveal {
 }
 
 .motto__quote {
-  font-size: var(--f-m-l);
+  font-size: var(--f-quote);
   color: var(--red);
   max-width: clamp(13.4375rem, 7.2393rem + 26.0976vw, 26.8125rem);
   line-height: 115%;
   grid-column: 2/span 2;
-  grid-row: 1
+  grid-row: 1;
 }
 
 .motto__plantin {
@@ -1464,7 +1465,7 @@ html.has-js .koepel__reveal {
 
 .labor__hover,
 .constancy__hover {
-  clip-path:circle(43% at 50% 50%);
+  clip-path: circle(43% at 50% 50%);
   opacity: 0.8;
   object-fit: cover;
   grid-area: 1 / 1;
@@ -1483,7 +1484,8 @@ html.has-js .koepel__reveal {
   z-index: 1;
 }
 
-.labor__l, .constancy__c{
+.labor__l,
+.constancy__c {
   margin-left: var(--s-s-m);
 }
 
@@ -1526,19 +1528,19 @@ html.has-js .koepel__reveal {
   margin-top: 50%;
 }
 
-.note__text--vs{
+.note__text--vs {
   font-weight: bold;
   font-size: var(--f-1-2);
 }
 
-.vs__note{
+.vs__note {
   display: flex;
   flex-flow: row;
   align-self: center;
   margin-bottom: var(--s-1);
 }
 
-.note__arrow--vs{
+.note__arrow--vs {
   margin: 0;
   margin-left: 1rem;
 }

@@ -48,7 +48,7 @@ const init = () => {
   revealImages();
   hoverImages();
   intoPages();
-  passerDown();
+  //  passerDown();
 }
 
 const passerSwing = () => {
@@ -242,7 +242,7 @@ const introAnimations = () => {
   const cta = document.querySelector(".inf__cta");
 
   gsap.set(yearLetters, {
-    y: () => gsap.utils.random(-20, 20), 
+    y: () => gsap.utils.random(-20, 20),
     rotation: () => gsap.utils.random(-30, 30), // Random rotation
   });
 
@@ -728,7 +728,46 @@ const hoverImages = () => {
 }
 
 const intoPages = () => {
+  const images = document.querySelectorAll(".vs__labor, .vs__constancy");
 
+  images.forEach((container) => {
+    const image = container.querySelector("img.constancy__hover, img.labor__hover");
+
+    container.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const targetPage = container.getAttribute("href");
+
+      const clone = container.cloneNode(true);
+      document.body.appendChild(clone);
+      const clonedImage = clone.querySelector("img.constancy__hover, img.labor__hover");
+      clonedImage.remove();
+
+      gsap.set(clone, {
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        width: image.offsetWidth,
+        height: image.offsetHeight,
+        borderRadius: "50%",
+        clipPath: "circle(50% at 50% 50%)",
+        zIndex: 5,
+        pointerEvents: "none",
+        backgroundColor: "var(--bg)",
+        opacity: 1
+      });
+
+      gsap.to(clone, {
+        scale: 4,
+        duration: 1,
+        ease: "power2.out",
+        onComplete: () => {
+          window.location.href = targetPage;
+        },
+      })
+    });
+  });
 }
 
 /*
