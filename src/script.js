@@ -45,6 +45,8 @@ const init = () => {
   quizInteraction();
   drawCircle();
   horizontalScroll();
+  revealImages();
+  hoverImages();
 }
 
 const passerSwing = () => {
@@ -529,6 +531,12 @@ const drawCircle = () => {
   compassLeg.addEventListener('click', (e) => {
     isDragging = !isDragging;
     compassLeg.style.cursor = isDragging ? "grabbing" : "grab";
+    gsap.to(document.querySelector(".quote__interact"), {
+      opacity: 1,
+      color: "var(--red)",
+      duration: 0.2,
+      ease: "power2.out"
+    });
 
     if (!isDragging) {
       compassLeg.style.transform = `rotate(${0}deg)`;
@@ -539,6 +547,12 @@ const drawCircle = () => {
   });
 
   compassLeg.addEventListener('touchstart', (e) => {
+    gsap.to(document.querySelector(".quote__interact"), {
+      opacity: 1,
+      color: "var(--red)",
+      duration: 0.2,
+      ease: "power2.out"
+    });
     isDragging.toggl
     if (isTouchDevice) {
       e.preventDefault();
@@ -572,7 +586,10 @@ const drawCircle = () => {
       currentRotation = startRotation - rotateX * 0.45;
       currentRotation = Math.min(maxRotation, Math.max(-maxRotation, currentRotation));
 
-      gsap.to(compassLeg, { rotation: currentRotation, duration: 0.1 });
+      gsap.to(compassLeg, {
+        rotation: currentRotation,
+        duration: 0.1
+      });
 
       maxRotationReached = Math.max(maxRotationReached, Math.abs(currentRotation));
 
@@ -614,6 +631,98 @@ const horizontalScroll = () => {
       },
     });
   }
+}
+
+const revealImages = () => {
+
+  const timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".koepel",
+      start: "12% 20%",
+      end: "bottom top",
+      pin: ".koepel",
+      scrub: true,
+      markers: true
+    },
+  });
+
+  timeline
+    .fromTo(".koepel__sitting", {
+      y: 0,
+    },
+      {
+        y: -50,
+        opacity: 0,
+      })
+    .from(".koepel__reveal", {
+      y: 50,
+      opacity: 0,
+      onStart: () => {
+        document.querySelector(".koepel__reveal").style.display = "grid";
+      },
+    });
+}
+
+const showImage = (wordClass) => {
+  const images = document.querySelectorAll(".show");
+
+  images.forEach((image) => image.classList.remove("active"));
+
+  const targetImage = document.querySelector(`.reveal__${wordClass}`);
+  if (targetImage) {
+    targetImage.classList.add("active");
+  }
+};
+
+const showDefaultImage = () => {
+  const images = document.querySelectorAll(".show");
+
+  images.forEach((image) => image.classList.remove("active"));
+
+  const defaultImage = document.querySelector(".reveal__start");
+  if (defaultImage) {
+    defaultImage.classList.add("active");
+  }
+};
+
+const handleDesktopHover = (word) => {
+  const wordClass = word.classList[2];
+
+  word.addEventListener("mouseenter", () => {
+    showImage(wordClass);
+  });
+
+  word.addEventListener("mouseleave", () => {
+    showDefaultImage();
+  });
+};
+
+const handleMobileClick = (word) => {
+  const wordClass = word.classList[2];
+  const targetImage = document.querySelector(`.reveal__${wordClass}`);
+  let isActive = false;
+
+  word.addEventListener("click", () => {
+    if (targetImage) {
+      if (!isActive) {
+        targetImage.classList.add("active");
+        isActive = true;
+      } else {
+        targetImage.classList.remove("active");
+        isActive = false;
+        showDefaultImage();
+      }
+    }
+  });
+};
+
+const hoverImages = () => {
+  const words = document.querySelectorAll(".word");
+
+  words.forEach((word) => {
+    handleDesktopHover(word);
+    handleMobileClick(word);
+  });
 }
 
 init();
