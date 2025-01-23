@@ -1610,7 +1610,7 @@ html.has-js .koepel__reveal {
   margin-bottom: var(--s-s);
 }
 
-.next__discover{
+.next__discover {
   display: flex;
   flex-flow: column;
 }
@@ -1679,7 +1679,8 @@ html:not(.has-js) .discover__block {
   top: 20%;
 }
 
-.discover__img, .discover__pic{
+.discover__img,
+.discover__pic {
   position: relative;
   width: fit-content;
 }
@@ -1687,20 +1688,21 @@ html:not(.has-js) .discover__block {
 .discover__pic::before {
   content: "";
   position: absolute;
-  top:60%;
+  top: 60%;
   right: 0;
   width: 10rem;
-  height:10rem;
+  height: 10rem;
   background-color: var(--bg-dark);
   border-radius: 50%;
   z-index: -1;
 }
 
-html.has-js .next{
+html.has-js .next {
   display: grid;
 }
 
-html.has-js .next__first,  html.has-js .next__discover{
+html.has-js .next__first,
+html.has-js .next__discover {
   grid-row: 1;
   grid-column: 1;
 }
@@ -1710,10 +1712,83 @@ html.has-js .next__discover {
   display: none;
 }
 
-html:not(.has-js) .object{
+html:not(.has-js) .object {
   display: none;
 }
 
+/* footer */
+.footer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-image: url(../assets/img/footer-bg-small.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: var(--f-xxxl);
+}
+
+.museum {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: fit-content;
+  margin-top: -5rem;
+}
+
+.visit {
+  display: flex;
+  flex-flow: row;
+  margin-left: -3.5rem;
+}
+
+.visit__isit {
+  font-size: 5rem;
+  align-self: center;
+  margin: 5rem 0 0 -3.5rem;
+}
+
+.museum__title {
+  font-size: 2rem;
+  margin-top: -2.3rem;
+  margin-bottom: var(--s-4);
+}
+
+.museum__text {
+  font-size: var(--f-16);
+  max-width: 343px;
+  text-align: center;
+  margin: 0 var(--s-3);
+  margin-bottom: var(--s-2);
+}
+
+.footer__nav--title {
+  color: var(--red);
+  font-size: 1.56rem;
+  margin-bottom: 2rem;
+}
+
+.footer__story,
+.footer__museum {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.story__links {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  font-size: var(--f-m);
+  gap: 1.5rem;
+}
+
+.footer__nav{
+  display: flex;
+  flex-flow: row;
+  margin-top: var(--s-l-m);
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
 /* media */
 
 @media (prefers-reduced-motion) {
