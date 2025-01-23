@@ -47,6 +47,7 @@ const init = () => {
   horizontalScroll();
   revealImages();
   hoverImages();
+  passerDown();
 }
 
 const passerSwing = () => {
@@ -240,7 +241,7 @@ const introAnimations = () => {
   const cta = document.querySelector(".inf__cta");
 
   gsap.set(yearLetters, {
-    y: () => gsap.utils.random(-20, 20), // Random vertical position
+    y: () => gsap.utils.random(-20, 20), 
     rotation: () => gsap.utils.random(-30, 30), // Random rotation
   });
 
@@ -627,7 +628,7 @@ const horizontalScroll = () => {
         scrub: 1,
         start: "bottom bottom",
         end: () => `+=${horizontal.scrollWidth}`,
-        markers: true,
+        markers: false,
       },
     });
   }
@@ -642,7 +643,7 @@ const revealImages = () => {
       end: "bottom top",
       pin: ".koepel",
       scrub: true,
-      markers: true
+      markers: false
     },
   });
 
@@ -724,5 +725,53 @@ const hoverImages = () => {
     handleMobileClick(word);
   });
 }
+
+/*
+const passerDown = () => {
+  const passer = document.querySelector(".third__compasses.moving");
+  const staticPasser = document.querySelector(".third__compasses.static");
+  const smallPasser = document.querySelector(".sitting__passer");
+  const koepel = document.querySelector(".koepel");
+  const compassLeg = document.querySelector(".compasses__leg");
+  const compassCircle = document.querySelector(".compasses__circle");
+  const resetButton = document.querySelector(".compasses__reset");
+
+  const bigPasserTop = staticPasser.getBoundingClientRect().top + window.scrollY;
+  const smallPasserTop = smallPasser.getBoundingClientRect().top + window.scrollY;
+  const distanceToSmallPasser = smallPasserTop - bigPasserTop;
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: staticPasser,
+      start: "top top",
+      end: `+=${distanceToSmallPasser}-200`, 
+      pin: false,
+      scrub: 1,
+      markers: true,
+      onUpdate: () => { 
+        gsap.to(compassLeg, { rotation: 0, duration: 0.5 });
+        gsap.to(compassCircle, { width: 0, height: 0, duration: 0.5 });
+        resetButton.style.display = "none";
+      },
+    },
+  });
+
+  tl.to(passer, {
+    y: distanceToSmallPasser, 
+    opacity: 0, 
+    scale: 0.4, 
+    duration: 1,
+  });
+
+  tl.to(
+    smallPasser,
+    {
+      opacity: 1, 
+      duration: 0.5,
+    },
+    "<"
+  );
+};*/
+
 
 init();

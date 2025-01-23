@@ -1058,7 +1058,7 @@ html:not(.has-js) .quiz__guess {
 /* compasses */
 .third {
   display: grid;
-  overflow-x: hidden;
+  overflow: hidden;
   margin-top: var(--s-4);
   width: 100vw;
 }
@@ -1154,6 +1154,16 @@ html:not(.has-js) .quiz__guess {
 .third {
   flex: 0 0 100vw;
 }
+
+/*
+.third__compasses.moving {
+  position: absolute;
+  transform: translateY(clamp(15%, 10vw, 5%));
+}
+
+.third__compasses.static{
+  opacity: 0;
+}*/
 
 /*koepel*/
 
@@ -1269,9 +1279,27 @@ html:not(.has-js) .quiz__guess {
   gap: 20px;
   justify-items: center;
   width: 100vw;
-  grid-row: 2;
   grid-column: 1;
   margin-top: clamp(4.5rem, 10vw, 1rem);
+}
+
+html:not(.has-js) .reveal__note,
+html:not(.has-js) .stamp__note,
+html:not(.has-js) .compass__note {
+  display: none;
+}
+
+
+html:not(.has-js) .stamp__pickup {
+  margin-top: var(--s-xxl);
+}
+
+html:not(.has-js) .hero__house.before {
+  margin-top: var(--s-s);
+}
+
+html.has-js .koepel__reveal {
+  grid-row: 2;
 }
 
 .reveal__images {
@@ -1315,7 +1343,7 @@ html:not(.has-js) .quiz__guess {
   margin-top: 200rem;
 }
 
-.show{
+.show {
   display: none;
   transition: opacity 0.3s ease;
 }
@@ -1323,6 +1351,191 @@ html:not(.has-js) .quiz__guess {
 .show.active {
   display: flex;
 }
+
+/* motto */
+
+.motto {
+  background-image: url(../assets/img/motto-bg-small.svg);
+  background-size: 100%;
+  background-position-y: 10%;
+  background-repeat: no-repeat;
+  margin-top: var(--s-xl-xl);
+}
+
+.motto__labcon {
+  display: flex;
+  flex-flow: column;
+}
+
+.motto__printmark {
+  align-self: center;
+}
+
+.themotto__text,
+.labor__text {
+  font-size: var(--f-16);
+}
+
+.themotto__title,
+.labor__title {
+  font-size: 1.5625rem;
+  font-weight: bold;
+}
+
+.themotto__title {
+  background-image: url(../assets/img/img_motto-w.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding: 1.5rem 2rem 2rem 10rem;
+  width: fit-content;
+  align-self: flex-end;
+  margin-top: var(--s-0);
+}
+
+.themotto__text {
+  max-width: clamp(18.75rem, 9.5565rem + 38.7097vw, 33.75rem);
+  margin: 0 var(--space-m-3xl);
+}
+
+.motto__themotto {
+  width: fit-content;
+  display: flex;
+  margin-top: var(--s-l-m);
+  flex-flow: column;
+  align-self: flex-end;
+}
+
+.labor__text {
+  max-width: clamp(18.75rem, 9.7635rem + 37.8378vw, 27.5rem);
+  margin-left: 2.8rem;
+}
+
+.labor__title {
+  background-image: url(../assets/img/img_labor-w.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding: 1.7rem 3rem 2rem 2.5rem;
+  width: fit-content;
+  margin-top: var(--s-0);
+}
+
+.motto__pic {
+  display: grid;
+  grid-template-columns: 55%;
+  align-items: center;
+  overflow-x: hidden;
+  width: clamp(23.75rem, 8.5152rem + 64.1463vw, 56.625rem);
+  margin-top: -2rem
+}
+
+.motto__quote {
+  font-size: var(--f-m-l);
+  color: var(--red);
+  max-width: clamp(13.4375rem, 7.2393rem + 26.0976vw, 26.8125rem);
+  line-height: 115%;
+  grid-column: 2/span 2;
+  grid-row: 1
+}
+
+.motto__plantin {
+  grid-column: 1/span 2;
+  grid-row: 1;
+}
+
+.motto__labor {
+  width: fit-content;
+  margin-top: var(--s-l-m);
+}
+
+/* vs */
+.motto__vs {
+  display: flex;
+  flex-flow: column;
+  justify-items: center;
+  align-items: center;
+  margin: var(--s-l-m) var(--space-m-3xl) 0 var(--space-m-3xl);
+}
+
+.vs__labor,
+.vs__constancy {
+  display: grid;
+}
+
+.labor__hover,
+.constancy__hover {
+  clip-path:circle(43% at 50% 50%);
+  opacity: 0.8;
+  object-fit: cover;
+  grid-area: 1 / 1;
+  transition: clip-path 0.4s ease, opacity 0.2s ease-in-out;
+}
+
+.vs__labor:hover .labor__hover,
+.vs__constancy:hover .constancy__hover {
+  clip-path: circle(100%);
+  opacity: 1;
+}
+
+.vs__labor .labor__l,
+.vs__constancy .constancy__c {
+  grid-area: 1 / 1;
+  z-index: 1;
+}
+
+.labor__l, .constancy__c{
+  margin-left: var(--s-s-m);
+}
+
+.vs__compass {
+  display: grid;
+  place-items: center;
+  transform: rotate(90deg);
+  margin: clamp(-12.5rem, -1.0417rem + -19.2982vw, -5.625rem) 0;
+}
+
+.vs__compass--img {
+  grid-area: 1 / 1;
+  z-index: 1;
+}
+
+.vs__compass--word {
+  color: var(--bg);
+  font-size: clamp(3.125rem, 2.1616rem + 4.0566vw, 5.8125rem);
+  font-weight: bold;
+  text-align: center;
+  grid-area: 1 / 1;
+  transform: rotate(-90deg);
+}
+
+.vs__compass--word1 {
+  transform: rotate(-75deg);
+  margin-right: 36%;
+  margin-top: 30%;
+}
+
+.vs__compass--word2 {
+  transform: rotate(-105deg);
+  margin-left: 45%;
+  margin-top: 50%;
+}
+
+.note__text--vs{
+  font-weight: bold;
+  font-size: var(--f-1-2);
+}
+
+.vs__note{
+  display: flex;
+  flex-flow: row;
+  align-self: center;
+  margin-bottom: var(--s-1);
+}
+
+.note__arrow--vs{
+  margin: 0;
+  margin-left: 1rem;
+}
+
 
 /* media */
 
@@ -1477,6 +1690,10 @@ html:not(.has-js) .quiz__guess {
 }
 
 @media only screen and (min-width: 1000px) {
+  html:not(.has-js) .hero__house.before {
+    align-self: center;
+  }
+
   .loading {
     background-image: url(../assets/img/texture-loading.png);
   }

@@ -460,12 +460,19 @@
             <img class="note__arrow note__arrow--compass" src="./src/assets/img/arrow-stamp.svg">
           </div>
           <p class="third__bgtext optima">Harmony</p>
-          <div class="third__compasses">
+          <div class="third__compasses static">
             <img class="compasses__leg" src="./src/assets/img/passer-leftleg-2.svg" width="109" alt="compasses left leg">
             <img class="compasses__rest" src="./src/assets/img/passer-rest.svg" width="120" alt="compasses rest">
             <div class="compasses__circle"></div>
             <button class="compasses__reset" id="resetButton">Reset</button>
           </div>
+          <!--
+          <div class="third__compasses moving">
+            <img class="compasses__leg" src="./src/assets/img/passer-leftleg-2.svg" width="109" alt="compasses left leg">
+            <img class="compasses__rest" src="./src/assets/img/passer-rest.svg" width="120" alt="compasses rest">
+            <div class="compasses__circle"></div>
+            <button class="compasses__reset" id="resetButton">Reset</button>
+          </div> -->
           <p class="third__quote optima">
             You can only create a circle when you have a constant point <span class="quote__interact">and perform labor.</span>
           </p>
@@ -565,7 +572,83 @@
           </div>
         </div>
       </section>
-      <section class="test">test </section>
+      <section class="motto">
+        <article class="motto__labcon">
+          <picture class="motto__printmark">
+            <source sizes="(min-width: 800px) 250px, (min-width: 600px) 180px, 142px" srcset="./src/assets/img/motto_printmark-142.avif 142w,
+                                        ./src/assets/img/motto_printmark-180.avif 180w,
+                                        ./src/assets/img/motto_printmark-250.avif 250w" type="image/avif">
+            <img class="motto__printmark" src="./src/assets/img/motto_printmark-142.png" alt="printmark " srcset="./src/assets/img/motto_printmark-180.png 180w,
+                                      ./src/assets/img/motto_printmark-250.png 250w"
+              sizes="(min-width: 800px) 357px, (min-width: 600px) 260px, 180px">
+          </picture>
+          <div class="motto__themotto">
+            <p class="themotto__text"> Plantin did not merely wait passively for what fortune saw fit to drop in his lap. It was not without reason that in
+            1557 Plantin took as<span class="bold"> his motto Labore et Constantia</span>, represented visually by the compasses. The stationary point stands
+            for constancy, the moving point for labor.</p>
+            <h3 class="themotto__title optima">The Motto</h3>
+          </div>
+          <div class="motto__pic">
+            <picture class="motto__plantin">
+              <source sizes="(min-width: 800px) 700px, (min-width: 600px) 500px, 320px" srcset="./src/assets/img/motto_plantin-320.avif 320w,
+                                                    ./src/assets/img/motto_plantin-500.avif 500w,
+                                                    ./src/assets/img/motto_plantin-700.avif 700w" type="image/avif">
+              <img class="motto__plantin" src="./src/assets/img/motto_plantin-320.png" alt="plantin" srcset="./src/assets/img/motto_plantin-500.png 500w,
+                                                  ./src/assets/img/motto_plantin-700.png 700w"
+                sizes="(min-width: 800px) 700px, (min-width: 600px) 500px, 320px">
+            </picture>
+            <p class="motto__quote"> "With hard work <br> and patience you can overcome all setbacks"</p>
+          </div>
+          <div class="motto__labor">
+            <p class="labor__text"> The motto captures Plantin's belief that true greatness can only be achieved through tireless effort and steadfast
+            dedication. As he explained in the introductory pages of his monumental Biblia Polyglotta, this motto was both a
+            personal creed and a business promise.</p>
+            <h3 class="labor__title optima">By labor and constancy</h3>
+          </div>
+        </article>
+        <article class="motto__vs">
+          <div class="interactive-note vs__note phone-show">
+            <p class="note__text note__text--vs optima"> Find out more!</p>
+            <img class="note__arrow note__arrow--vs" src="./src/assets/img/arrow-vs.svg">
+          </div>
+          <div class="vs__labor">
+            <picture class="labor__hover">
+              <source sizes="(min-width: 800px) 430px, (min-width: 600px) 430px, 395px" 
+                    srcset="./src/assets/img/labor-hover-395.avif 395w,
+                              ./src/assets/img/labor-hover-430.avif 430w,
+                                ./src/assets/img/labor-hover-470.avif 470w" type="image/avif">
+              <img class="labor__hover" src="./src/assets/img/labor-hover-395.png" alt="printing atelier" 
+                      srcset="./src/assets/img/labor-hover-430.png 430w,
+                      ./src/assets/img/labor-hover-470.png 470w"
+                sizes="(min-width: 800px) 430px, (min-width: 600px) 430px, 395px">
+            </picture>
+            <img class="labor__l" src="./src/assets/img/L.svg">
+          </div>
+          <div class="vs__compass">
+            <picture class="vs__compass--img">
+              <source sizes="(min-width: 1000px) 420px, (min-width: 600px) 320px, 220px" srcset="./src/assets/img/vs-compass-220.avif 220w,
+                                                  ./src/assets/img/vs-compass-320.avif 320w,
+                                                    ./src/assets/img/vs-compass-420.avif 420w" type="image/avif">
+              <img class="vs__compass--img" src="./src/assets/img/ vs-compass-220.png" alt="compasses" srcset="./src/assets/img/vs-compass-320.png 320w,
+                                          ./src/assets/img/vs-compass-420.png 420w"
+                sizes="(min-width: 800px) 420px, (min-width: 600px) 320px, 220px">
+            </picture>
+            <p class="vs__compass--word vs__compass--word1">Labor</p>
+            <p class="vs__compass--word vs__compass--word2">Constancy</p>
+          </div>
+          <div class="vs__constancy">
+            <picture class="constancy__hover">
+              <source sizes="(min-width: 800px) 430px, (min-width: 600px) 430px, 395px" srcset="./src/assets/img/constancy-hover-395.avif 395w,
+                                        ./src/assets/img/constancy-hover-430.avif 430w,
+                                          ./src/assets/img/constancy-hover-470.avif 470w" type="image/avif">
+              <img class="constancy__hover" src="./src/assets/img/constancy-hover-395.png" alt="plantin family" srcset="./src/assets/img/constancy-hover-430.png 430w,
+                                ./src/assets/img/constancy-hover-470.png 470w"
+                sizes="(min-width: 800px) 430px, (min-width: 600px) 430px, 395px">
+            </picture>
+            <img class="constancy__c" src="./src/assets/img/C.svg">
+         </div>
+        </article>
+      </section>
     </div>
 
     
