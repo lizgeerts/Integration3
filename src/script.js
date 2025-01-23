@@ -48,6 +48,7 @@ const init = () => {
   revealImages();
   hoverImages();
   intoPages();
+  dragBook();
   //  passerDown();
 }
 
@@ -768,6 +769,55 @@ const intoPages = () => {
       })
     });
   });
+}
+
+const dragBook = () => {
+  const book = document.querySelector(".object__img");
+  const portrait = document.querySelector(".portrait__img");
+
+  const draggableBook = Draggable.create(book, {
+    type: "x,y",
+    bounds: ".next__first",
+    onDragEnd: function () {
+      if (isOverlapping(book, portrait)) {
+        fadeInOut();
+      }
+    },
+  });
+}
+
+const isOverlapping = (book, portrait) => {
+  const rect1 = book.getBoundingClientRect();
+  const rect2 = portrait.getBoundingClientRect();
+
+  return !(
+    rect1.right < rect2.left ||
+    rect1.left > rect2.right ||
+    rect1.bottom < rect2.top ||
+    rect1.top > rect2.bottom
+  );
+}
+
+const fadeInOut = () => {
+  const discoverSection = document.querySelector(".next__discover");
+  const firstSection = document.querySelector(".next__first");
+
+  const tl = gsap.timeline();
+
+  tl
+    .to(firstSection, {
+      opacity: 0,
+      duration: 0.5,
+      onComplete: () => {
+        firstSection.style.display = "none";
+      },
+    })
+    .set(discoverSection, { display: "flex" })
+    .from(discoverSection, {
+      y: 30,
+      opacity: 0,
+      duration: 0.5,
+    });
 }
 
 /*
