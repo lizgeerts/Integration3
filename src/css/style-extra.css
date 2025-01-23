@@ -241,7 +241,10 @@ a {
   grid-template-columns: 30% 20% 50%;
   gap: var(--s-s);
   place-items: center;
-  margin-top: -3rem;
+  margin-top: -2rem;
+  padding: 0 var(--space-m-3xl);
+  padding-bottom: var(--space-m-3xl);
+  margin-right: var(--space-m-3xl);
 }
 
 .atelier--presser {
@@ -278,6 +281,14 @@ a {
   grid-column: 2/ span 2;
   text-align: center;
   font-size: var(--s-0);
+  font-weight: 300;
+  max-width: 15.75rem;
+  margin-top: var(--s-2);
+  justify-self: center;
+}
+
+.labor__text--2 {
+  width: clamp(16.875rem, 13.2453rem + 15.283vw, 27rem);
 }
 
 @media (pointer: fine) {
@@ -304,6 +315,10 @@ a {
     row-gap: var(--s-0);
   }
 
+  .atelier--bezetter {
+    margin: 0 var(--s-s) var(--s-s-m) 0;
+  }
+
 }
 
 @media only screen and (min-width: 840px) {
@@ -317,6 +332,25 @@ a {
     right: var(--space-m-3xl);
   }
 
+  .labor {
+    display: flex;
+    flex-flow: row;
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .labor__text {
+    margin-left: var(--f-xl);
+  }
+
+  .L {
+    width: 160px;
+    margin-top: -3rem;
+  }
+
+  .labor {
+    margin-top: 6rem;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -377,6 +411,33 @@ a {
     grid-column: 1/span 2;
     place-self: center;
     margin-left: -3rem;
+  }
+
+  .labor {
+    display: flex;
+    flex-flow: row;
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .labor__text {
+    margin-left: 5rem
+  }
+
+  .L {
+    width: 160px;
+    margin-top: -3rem;
+  }
+
+  .labor {
+    margin: 0 var(--space-m-3xl);
+    margin-top: 6rem;
+  }
+
+  .atelier {
+    margin-top: -6rem;
+    gap: 1rem;
+    width: 100vw;
   }
 }
 
@@ -446,6 +507,61 @@ a {
     place-self: center;
     margin-left: 3rem;
     margin-bottom: 2rem;
+  }
+
+  .labor {
+    margin-top: 0;
+  }
+
+  .atelier {
+    display: grid;
+    grid-template-columns: 17% 25% 45% 17%;
+    margin-top: -10rem;
+    background-image: url(../assets/img/labor/img-background.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: 100%;
+  }
+
+  .atelier__img {
+    background-color: var(--bg);
+    clip-path: circle(50% at 50% 50%);
+  }
+
+  .atelier--presser {
+    grid-row: 1;
+    justify-self: end;
+    grid-column: 3;
+  }
+
+  .atelier--legger {
+    grid-row: 2;
+    grid-column: 1;
+    align-self: end;
+  }
+
+  .atelier--lector {
+    grid-row: 2 /span 2;
+    grid-column: 3;
+  }
+
+  .atelier--bezetter {
+    grid-row: 1/ span 2;
+    grid-column: 2;
+    margin: 0;
+  }
+
+  .atelier--man {
+    grid-row: 1;
+    grid-column: 4;
+    margin-bottom: -3rem;
+  }
+
+  .labor__polyglot {
+    grid-row: 3;
+    grid-column: 1/ span 2;
+    text-align: left;
+    max-width: 16.5rem;
   }
 }
 

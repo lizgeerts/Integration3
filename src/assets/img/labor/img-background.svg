@@ -5,5 +5,5 @@
 <line x1="1044.01" y1="220.5" x2="502.006" y2="226.511" stroke="#333332" stroke-dasharray="8 8"/>
 <line x1="1044" y1="18.5" x2="714" y2="18.5" stroke="#333332"/>
 <circle cx="696" cy="444" r="170.6" stroke="#333332" stroke-width="0.8"/>
-<circle cx="143" cy="403" r="143" fill="#F1EFE9"/>
+<circle cx="143" cy="333" r="143" fill="#F1EFE9"/>
 </svg>
