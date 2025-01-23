@@ -47,6 +47,7 @@ const init = () => {
   horizontalScroll();
   revealImages();
   hoverImages();
+  intoPages();
   passerDown();
 }
 
@@ -724,6 +725,10 @@ const hoverImages = () => {
     handleDesktopHover(word);
     handleMobileClick(word);
   });
+}
+
+const intoPages = () => {
+
 }
 
 /*

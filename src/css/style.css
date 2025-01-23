@@ -147,6 +147,7 @@ img {
   max-width: 1800px;
   overflow: hidden;
   place-self: center;
+  width: 100vw;
 }
 
 .visually-hidden {
@@ -1484,6 +1485,12 @@ html.has-js .koepel__reveal {
 
 .labor__l, .constancy__c{
   margin-left: var(--s-s-m);
+}
+
+/* Apply the animation on click */
+.vs__constancy.zoom-in .constancy__hover {
+  animation: zoomIn 1s ease forwards;
+  z-index: 5;
 }
 
 .vs__compass {
