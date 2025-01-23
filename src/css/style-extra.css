@@ -236,6 +236,50 @@ a {
   align-self: end;
 }
 
+.atelier {
+  display: grid;
+  grid-template-columns: 30% 20% 50%;
+  gap: var(--s-s);
+  place-items: center;
+  margin-top: -3rem;
+}
+
+.atelier--presser {
+  grid-row: 1;
+  justify-self: end;
+  grid-column: 3;
+}
+
+.atelier--legger {
+  grid-row: 2;
+  grid-column: 2;
+  align-self: end;
+}
+
+.atelier--lector {
+  grid-row: 2;
+  grid-column: 3;
+}
+
+.atelier--bezetter {
+  grid-row: 1/ span 2;
+  grid-column: 1/ span 2;
+  justify-self: center;
+}
+
+.atelier--man {
+  grid-row: 3;
+  grid-column: 1;
+  justify-self: center;
+}
+
+.labor__polyglot {
+  grid-row: 3;
+  grid-column: 2/ span 2;
+  text-align: center;
+  font-size: var(--s-0);
+}
+
 @media (pointer: fine) {
   .show-phone {
     display: none;
@@ -341,7 +385,7 @@ a {
     display: flex;
     flex-flow: row;
     padding-right: 0;
-    gap: var(--f-m);
+    gap: var(--s-xl-xl);
   }
 
   .title__img {
@@ -357,14 +401,16 @@ a {
     grid-template-columns: repeat(3, 33%);
     margin: 0;
     overflow-y: hidden;
+    width: 100%;
     margin-bottom: var(--space-m-3xl);
   }
 
   .family--plantin {
     position: static;
     grid-row: 2/ span 2;
-    grid-column: 3;
+    grid-column: 2/span 3;
     align-self: end;
+    justify-self: end;
   }
 
   .family--franciscus {
@@ -400,5 +446,13 @@ a {
     place-self: center;
     margin-left: 3rem;
     margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+
+  .family--plantin,
+  .family--franciscus-w {
+    margin-right: var(--space-m-3xl);
   }
 }
