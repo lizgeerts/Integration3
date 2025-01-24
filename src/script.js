@@ -238,7 +238,7 @@ const introAnimations = () => {
   const yearLeft = document.querySelectorAll(".year-letter--left");
   const infText = document.querySelector(".inf__text");
   const cpPasser = document.querySelector(".cp__passer");
-  const cpImg = document.querySelectorAll(".cp__img");
+  const cpImg = document.querySelector(".cp__img--phone");
   const mathImg = document.querySelector(".math__img");
   const cta = document.querySelector(".inf__cta");
 
@@ -353,7 +353,7 @@ const introAnimations = () => {
 
 const stampAnimation = () => {
   gsap.set(inner, { opacity: 0 });
-  let stampTween
+  let stampTween;
 
   if (!hasReducedMotion) {
     stampTween = gsap.to(stamp, {
@@ -365,64 +365,45 @@ const stampAnimation = () => {
     });
   }
 
-  if (isTouchDevice) {
-    document.addEventListener('touchmove', moveStamp);
-    stamp.addEventListener('touchstart', (e) => {
-      drag = true;
+  Draggable.create(stamp, {
+    type: "x,y",
+    edgeResistance: 0.65, 
+    bounds: window,
+    onPress: () => {
       stamp.style.cursor = "grabbing";
-      stampTween.pause();
+      stampTween.pause(); 
+    },
+    onDrag: () => {
+      const stampRect = stamp.getBoundingClientRect();
+      const innerRect = inner.getBoundingClientRect();
 
-      e.preventDefault();
-    });
-    document.addEventListener('touchend', () => {
-      if (drag) {
-        drag = false;
-        stamp.style.cursor = "grab";
-        stamp.style.transform = `translate(${0}px, ${0}px)`;
+      if (
+        stampRect.left < innerRect.right &&
+        stampRect.right > innerRect.left &&
+        stampRect.top < innerRect.bottom &&
+        stampRect.bottom > innerRect.top
+      ) {
+        inner.style.opacity = 1;
+      } else {
         inner.style.opacity = 0;
-        stampTween.restart();
       }
-    });
-  } else {
-    document.addEventListener('mousemove', moveStamp);
-    stamp.addEventListener('click', (e) => {
-      drag = !drag;
-      stamp.style.cursor = drag ? "grabbing" : "grab";
+    },
+    onRelease: () => {
+      stamp.style.cursor = "grab";
+      stampTween.restart(); 
 
-      if (!drag) {
-        stamp.style.transform = `translate(${0}px, ${0}px)`;
-        inner.style.opacity = 0;
-        stampTween.restart();
-      }
-      stampTween.pause();
-    });
-  }
-}
+      gsap.to(stamp, {
+        x: 0,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out"
+      });
 
-const moveStamp = (e) => {
-  if (drag) {
-    const x = e.clientX || e.touches[0].clientX;
-    const y = e.clientY || e.touches[0].clientY;
-
-    const posX = x - stamp.offsetWidth / 2;
-    const posY = y - stamp.offsetHeight;
-    stamp.style.transform = `translate(${posX}px, ${posY}px)`;
-
-    const stampRect = stamp.getBoundingClientRect();
-    const innerRect = inner.getBoundingClientRect();
-
-    if (
-      stampRect.left < innerRect.right &&
-      stampRect.right > innerRect.left &&
-      stampRect.top < innerRect.bottom &&
-      stampRect.bottom > innerRect.top
-    ) {
-      inner.style.opacity = 1;
-    } else {
       inner.style.opacity = 0;
     }
-  }
+  });
 };
+
 
 const initializeEventListeners = (quizContainer) => {
   const quizMotto = quizContainer.querySelector(".quiz__motto");

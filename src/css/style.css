@@ -734,7 +734,7 @@ html:not(.has-js) .nojs-hide {
 }
 
 .stamp__text2 {
-  max-width: 233px;
+  max-width: clamp(15rem, 7.5469rem + 33.125vw, 28.25rem);
 }
 
 .stamp {
@@ -807,7 +807,7 @@ html:not(.has-js) .nojs-hide {
 }
 
 .extra-info-stamp {
-  margin-top: -3rem;
+  margin-top: -2rem;
   align-self: end;
 }
 
@@ -1914,6 +1914,11 @@ html:not(.has-js) .object {
     background-size: 100%;
     background-position-y: 5%;
   }
+
+  .pickup__inner {
+    margin-left: 0.2rem;
+  }
+
 }
 
 @media only screen and (min-width: 800px) {
@@ -1998,6 +2003,53 @@ html:not(.has-js) .object {
     justify-self: start;
     margin-left: clamp(-2rem, -15rem + 24vw, 0rem);
   }
+
+  .stamp {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+  }
+
+  .stamp__note {
+    grid-row: 3;
+    grid-column: 1;
+    align-self: start;
+  }
+
+  .stamp__text2 {
+    grid-row: 2;
+  }
+
+  .stamp__pickup {
+    grid-row: 3;
+    grid-column: 1/span 2;
+    justify-self: end;
+    grid-template-rows: auto;
+    margin: 0;
+    width: fit-content;
+  }
+
+  .pickup__interactive {
+    grid-row: 1;
+    grid-column: 2/ span 2;
+  }
+
+  .stamp__img {
+    grid-row: 1;
+    grid-column: 1/ span 2;
+    align-self: end;
+    max-width: 100%;
+    width: auto;
+  }
+
+  .note__arrow--stamp {
+    transform: scaleX(-1);
+    margin-left: 6rem;
+  }
+
+  .extra-info-stamp {
+    justify-self: end;
+  }
+
 }
 
 @media only screen and (min-width: 1000px) {
@@ -2133,6 +2185,39 @@ html:not(.has-js) .object {
     margin-bottom: var(--s-l-xl-2);
   }
 
+  .stamp {
+    max-width: 1155px;
+    place-self: center;
+  }
+
+  .stamp__pickup {
+    grid-row: 1/ span 3;
+    grid-column: 2;
+  }
+
+  .stamp__img {
+    margin-bottom: -2rem;
+  }
+
+  .extra-info-stamp {
+    grid-column: 1;
+    align-self: end;
+    justify-self: start;
+    grid-row: 3;
+  }
+
+  .stamp__note {
+    justify-self: end;
+    margin-right: var(--s-s-m);
+  }
+
+  .pickup__inner {
+    width: clamp(11.5rem, -2.9928rem + 23.1884vw, 12.5rem);
+  }
+
+  .extra-popup-stamp {
+    transform: translateX(10%);
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -2215,6 +2300,19 @@ html:not(.has-js) .object {
     display: block;
     width: 90%;
     justify-self: start;
+  }
+
+  .extra-popup-stamp {
+    transform: translateX(-90%);
+  }
+
+  .extra-info-stamp {
+    grid-column: 3;
+    margin-left: var(--s-s);
+  }
+
+  .stamp {
+    padding: 0;
   }
 }
 

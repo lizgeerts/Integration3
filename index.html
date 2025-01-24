@@ -227,7 +227,7 @@
           <img class="math__img" src="./src/assets/img/intr0-right.svg"> 
         </div>
       </section>
-      <section class="stamp">
+      <section id="stamp" class="stamp">
         <div class="stamp__t-text"> 
           <h2 class="stamp__title optima">The symbol</h2>
           <p class="stamp__subtitle">In 1557, Christopher Plantin adopted a powerful symbol that would come to define his business. <span class="bold">The pair of compasses</span>
@@ -235,40 +235,42 @@
         </div>
         <div class="interactive-note stamp__note">
           <p class="note__text optima"><span class="desktop-show">Click</span> <span class="phone-show">Drag</span> the stamp and hover over the frame to uncover the iconic printmark!</p>
-          <img class="note__arrow" src="./src/assets/img/arrow-stamp.svg">
+          <img class="note__arrow note__arrow--stamp" src="./src/assets/img/arrow-stamp.svg">
         </div>
         <div class="stamp__pickup">
           <picture class="stamp__img">
-            <source sizes="(min-width: 800px) 321px, (min-width: 600px) 250px, 195px" srcset="./src/assets/img/stamp-321.avif 321w,
-                                                ./src/assets/img/stamp-250.avif 250w,
-                                                ./src/assets/img/stamp-195.avif 195w,
-                                                " type="image/avif">
-            <img class="stamp__img" src="./src/assets/img/stamp-250.png" width="250"
+            <source sizes="(min-width: 1200px) 321px, (min-width: 800px) 250px, 195px"
+                   srcset="./src/assets/img/stamp-195.avif 195w,
+                          ./src/assets/img/stamp-250.avif 250w,
+                          ./src/assets/img/stamp-321.avif 321w,
+                          " type="image/avif">
+            <img class="stamp__img" src="./src/assets/img/stamp-195.png" 
               alt="stamp" srcset="
-                   ./src/assets/img/stamp-321.png 321w,
-                   ./src/assets/img/stamp-195.png 195w" sizes="(min-width: 800px) 321px, (min-width: 600px) 250px, 195px">
+                   ./src/assets/img/stamp-250.png 250w,
+                   ./src/assets/img/stamp-321.png 321w" sizes="(min-width: 1200px) 321px, (min-width: 800px) 250px, 195px">
           </picture>
           <div class="pickup__interactive"> 
             <picture class="pickup__inner">
-              <source sizes="(min-width: 800px) 200px, (min-width: 430px) 180px, 150px"
-                      srcset="./src/assets/img/inner-200.avif 200w,
+              <source sizes="(min-width: 600px) 200px, 180px"
+                      srcset="./src/assets/img/inner-150.avif 150w,
                               ./src/assets/img/inner-180.avif 180w,
-                              ./src/assets/img/inner-150.avif 570w,
+                              ./src/assets/img/inner-200.avif 200w,
                               " type="image/avif">
-              <img class="pickup__inner" src="./src/assets/img/inner-200.png" width="180" alt="printmark itself" srcset="
-                                        ./src/assets/img/inner-180.png 180w,
-                                        ./src/assets/img/inner-150.png 150w"
-                sizes="(min-width: 800px) 200px, (min-width: 430px) 180px, 150px">
+              <img class="pickup__inner" src="./src/assets/img/inner-150.png" alt="printmark itself" srcset="
+                                        ./src/assets/img/inner-180.png 150w,
+                                        ./src/assets/img/inner200.png 200w"
+                sizes="(min-width: 600px) 200px, (min-width: 430px) 180px, 150px">
             </picture>
             <picture class="pickup__outer">
-              <source sizes="(min-width: 800px) 370px, (min-width: 430px) 325px, 170px" srcset="./src/assets/img/outer-370.avif 370w,
-                                                            ./src/assets/img/outer-325.avif 325w,
-                                                            ./src/assets/img/outer-170.avif 170w,
-                                                            " type="image/avif">
-              <img class="pickup__outer" src="./src/assets/img/outer-325.png" width="370" alt="outer of printmark" srcset="
-                              ./src/assets/img/outer-370.png 370w,
-                              ./src/assets/img/outer-170.png 170w"
-                sizes="(min-width: 800px) 370px, (min-width: 430px) 325px, 170px">
+              <source sizes="(min-width: 600px) 370px, 325px" 
+                    srcset="./src/assets/img/outer-370.avif 370w,
+                          ./src/assets/img/outer-325.avif 325w,
+                           ./src/assets/img/outer-170.avif 170w,
+                           " type="image/avif">
+              <img class="pickup__outer" src="./src/assets/img/outer-170.png" alt="outer of printmark" srcset="
+                              ./src/assets/img/outer-325.png 325w,
+                              ./src/assets/img/outer-370.png 370w"
+                sizes="(min-width: 600px) 370px, (min-width: 430px) 325px, 170px">
             </picture>
           </div>
         </div>
@@ -278,7 +280,7 @@
             <a href="#popup" class="extra-img">
               <img class="extra__img--pop" src="./src/assets/img/extra.svg" width="70">
             </a>
-            <div id="popup" class="extra-popup">
+            <div id="popup" class="extra-popup extra-popup-stamp">
               <a href="#stamp" class="close-popup">
                 <img src="./src/assets/img/close-popup.svg" width="35">
               </a>
