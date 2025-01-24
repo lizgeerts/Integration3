@@ -7,6 +7,7 @@ const mm = gsap.matchMedia();
 const hasReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const isSemiLarge = window.matchMedia("(min-width: 800px)").matches;
 const isLarge = window.matchMedia("(min-width: 1200px)").matches;
+const is1000 = window.matchMedia("(min-width: 1000px)").matches;
 const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 const loadingScreen = document.querySelector(".loading");
 
@@ -238,7 +239,7 @@ const introAnimations = () => {
   const yearLeft = document.querySelectorAll(".year-letter--left");
   const infText = document.querySelector(".inf__text");
   const cpPasser = document.querySelector(".cp__passer");
-  const cpImg = document.querySelector(".cp__img--phone");
+  const cpImg = document.querySelectorAll(".cp__img");
   const mathImg = document.querySelector(".math__img");
   const cta = document.querySelector(".inf__cta");
 
@@ -600,7 +601,7 @@ const drawCircle = () => {
 }
 
 const horizontalScroll = () => {
-  if (isSemiLarge) {
+  if (is1000) {
     const horizontal = document.querySelector(".horizontal");
 
     gsap.to(horizontal, {
@@ -610,9 +611,9 @@ const horizontalScroll = () => {
         trigger: horizontal,
         pin: horizontal,
         scrub: 1,
-        start: "bottom bottom",
+        start: "bottom 90%",
         end: () => `+=${horizontal.scrollWidth}`,
-        markers: false,
+        markers: true
       },
     });
   }
