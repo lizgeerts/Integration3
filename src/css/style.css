@@ -1846,6 +1846,10 @@ html:not(.has-js) .object {
   .stamp__pickup {
     margin-top: -6rem;
   }
+
+  .hero__house.before {
+    margin-top: 7rem;
+  }
 }
 
 @media only screen and (min-width: 600px) {
@@ -1960,6 +1964,10 @@ html:not(.has-js) .object {
   .sign-sold {
     width: 16rem;
   }
+
+  .hero__house {
+    background-size: 72%;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -2055,7 +2063,15 @@ html:not(.has-js) .object {
     width: 20rem;
     justify-self: start;
     align-self: end;
-    transform: translateY(4%);
+    transform: translate(-10%, 4%)
+  }
+
+  .hero__house {
+    align-self: end;
+  }
+
+  .hero__house.before {
+    margin-top: 0;
   }
 }
 
@@ -2064,11 +2080,13 @@ html:not(.has-js) .object {
     height: 94vh;
     display: grid;
     grid-template-columns: 57% 45%;
+    gap: var(--s-2);
   }
 
   .introduction {
     justify-self: end;
-    margin-right: var(--s-s);
+    margin-right: clamp(1.25rem, -10.3571rem + 18.5714vw, 9.375rem);
+    ;
   }
 
   .hero__plantin {
@@ -2077,10 +2095,11 @@ html:not(.has-js) .object {
 
   .sign,
   .sign-sold {
-    width: 18rem;
+    width: 15rem;
     justify-self: auto;
     align-self: end;
     grid-row: 2;
+    transform: translate(-5%, 4%)
   }
 
   .hero__house {
@@ -2090,6 +2109,11 @@ html:not(.has-js) .object {
     background-size: 60%;
     grid-template-rows: 0.2fr 1fr 0.5fr;
     max-height: 30rem;
+    align-self: center;
+  }
+
+  .hero__house.before {
+    margin-top: var(--s-l-xl);
   }
 
   .button__img--hero {
@@ -2106,10 +2130,24 @@ html:not(.has-js) .object {
 
   .start {
     margin: 6rem 0 0 6rem;
+    height: fit-content
   }
 
   .start__text {
     margin-right: var(--special-hero);
+    max-width: 22rem;
   }
 
+}
+
+@media only screen and (min-width: 1500px) {
+  .introduction {
+    margin-top: 3rem;
+  }
+
+  .sign,
+  .sign-sold {
+    width: 18rem;
+    transform: translate(-5%, 4%)
+  }
 }

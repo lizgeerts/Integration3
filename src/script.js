@@ -170,10 +170,10 @@ const handleButtonClicked = () => {
     )
       .to(
         document.querySelector(".hero__house"), {
-        marginTop: "-13rem",
+        marginTop: "-12rem",
         ease: "power2.out",
         duration: 2
-      }
+      }, "-=1"
       )
     //  document.querySelector(".hero__house").classList.toggle("before");
   } else {
