@@ -2087,6 +2087,32 @@ html:not(.has-js) .object {
     margin: 0;
     margin-top: 2rem;
   }
+
+  .words {
+    background-size: 100%;
+    row-gap: var(--s-s-m);
+    height: clamp(9.375rem, -6.25rem + 31.25vw, 18rem);
+  }
+
+  .koepel__sitting {
+    margin-top: 0;
+  }
+
+  .sitting__passer {
+    margin-top: 7rem;
+  }
+
+  .sitting__img {
+    position: relative;
+    background-image: none;
+  }
+
+  .sitting__img::after {
+    content: url(../assets/img/lines-underplantin.svg);
+    position: absolute;
+    bottom: 10%;
+    left: -20%;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -2536,6 +2562,13 @@ html:not(.has-js) .object {
     margin: 0 0 -5rem var(--s-l-xl);
   }
 
+  .koepel__sitting {
+    margin-top: clamp(-11rem, 29.625rem + -47.5vw, -6rem);
+  }
+
+  .words {
+    background-size: contain
+  }
 }
 
 @media only screen and (min-width: 1500px) {
