@@ -1919,9 +1919,10 @@ html:not(.has-js) .object {
   }
 
   .motto {
-    background-image: url(../assets/img/motto-bg-mid.svg);
+    background-image: url(../assets/img/motto-bg-600.svg);
     background-size: 100%;
-    background-position-y: 5%;
+    background-position-y: 15%;
+    margin-top: var(--s-xl-xl);
   }
 
   .pickup__inner {
@@ -2135,6 +2136,32 @@ html:not(.has-js) .object {
     grid-column: 1;
   }
 
+  .motto {
+    background-image: url(../assets/img/motto-bg-800.svg);
+    background-size: 100%;
+    background-position-y: 5rem;
+  }
+
+  .motto__plantin {
+    width: 90%;
+  }
+
+  .motto__pic {
+    grid-template-columns: 45%;
+    margin-top: -6rem;
+  }
+
+  .motto__themotto {
+    margin-top: var(--s-l-xl-2);
+  }
+
+  .motto__labcon {
+    margin-bottom: var(--s-l-xl);
+  }
+
+  .motto__labor {
+    align-self: center;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -2480,6 +2507,90 @@ html:not(.has-js) .object {
     margin-top: var(--s-l-xl-2);
   }
 
+  .motto__labcon {
+    display: grid;
+    row-gap: 10rem;
+  }
+
+  .motto {
+    background-image: url(/Integration3/src/assets/img/motto-bg-1000.svg);
+    background-size: 100%;
+    background-position-y: 5rem;
+  }
+
+  .motto__printmark {
+    justify-self: center;
+    grid-row: 1;
+    grid-column: 1/span 2;
+  }
+
+  .motto__themotto {
+    grid-row: 2;
+    grid-column: 1/span 2;
+    justify-self: end;
+    margin-top: 0;
+  }
+
+  .motto__pic {
+    grid-row: 2/span 2;
+    grid-column: 1;
+  }
+
+  .motto__labor {
+    grid-row: 3;
+    grid-column: 1/span 2;
+    justify-self: end;
+    margin-right: var(--space-m-3xl);
+  }
+
+  .motto__vs {
+    display: grid;
+    margin: 0 var(--s-s);
+  }
+
+  .vs__compass {
+    transform: rotate(0deg);
+    width: fit-content;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .vs__compass--img {
+    width: 15rem;
+  }
+
+  .vs__labor {
+    grid-row: 1;
+    grid-column: 1/span 2;
+    justify-self: start;
+  }
+
+  .vs__compass--word {
+    font-size: 3rem;
+  }
+
+  .vs__compass--word2 {
+    transform: rotate(75deg);
+    margin-left: 70%;
+    margin-top: 0%;
+  }
+
+  .vs__compass--word1 {
+    transform: rotate(-75deg);
+    margin-right: 43%;
+    margin-top: -40%;
+  }
+
+  .vs__constancy {
+    grid-row: 1;
+    grid-column: 2/span 2;
+    justify-self: end;
+  }
+
+  .motto__labcon {
+    margin-bottom: var(--s-xxl-xxl);
+  }
+
 }
 
 @media only screen and (min-width: 1200px) {
@@ -2639,6 +2750,49 @@ html:not(.has-js) .object {
   .reveal__text1 {
     max-width: 20rem;
   }
+
+  .motto {
+    background-image: url(/Integration3/src/assets/img/motto-bg-large.svg);
+    background-size: 100%;
+    background-position-y: 5rem;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .motto__vs {
+    max-width: 80rem;
+    width: 100%;
+    align-self: center;
+  }
+
+  .motto__pic {
+    grid-row: 2 / span 3;
+  }
+
+  .motto__themotto {
+    grid-row: 2/span 2;
+    margin-top: var(--s-l-xl);
+  }
+
+  .motto__labor {
+    grid-row: 3/span 2;
+    align-self: end;
+    margin-right: clamp(1.875rem, -63.4028rem + 87.037vw, 31.25rem);
+  }
+
+  .motto__plantin {
+    width: 100%;
+  }
+
+  .motto__pic {
+    grid-template-columns: 55%;
+  }
+
+  .motto__quote {
+    align-self: start;
+    margin-top: 10rem;
+  }
+
 }
 
 @media only screen and (min-width: 1500px) {
@@ -2659,4 +2813,11 @@ html:not(.has-js) .object {
   .words {
     max-width: 1200px;
   }
+
+  .motto {
+    background-image: url(/Integration3/src/assets/img/motto-bg-full.svg);
+    background-size: 100%;
+    background-position-y: 5rem;
+  }
+
 }
