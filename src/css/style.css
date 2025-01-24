@@ -281,7 +281,7 @@ header {
   display: grid;
   align-items: center;
   justify-items: center;
-  width: 7rem;
+  width: fit-content;
 }
 
 .button__text,
@@ -519,13 +519,14 @@ html:not(.has-js) .nojs-hide {
   max-width: 6rem;
   margin-left: var(--space-m-3xl);
   grid-row: 1;
+  position: relative;
 }
 
 .plantin__name::after {
   content: "";
   position: absolute;
   left: 8%;
-  top: 38%;
+  top: 8rem;
   width: 4.6rem;
   height: 0.8px;
   background-color: var(--black);
@@ -1782,13 +1783,14 @@ html:not(.has-js) .object {
   gap: 1.5rem;
 }
 
-.footer__nav{
+.footer__nav {
   display: flex;
   flex-flow: row;
   margin-top: var(--s-l-m);
   gap: 1.5rem;
   margin-bottom: 5rem;
 }
+
 /* media */
 
 @media (prefers-reduced-motion) {
@@ -1806,6 +1808,10 @@ html:not(.has-js) .object {
 }
 
 @media only screen and (min-width: 430px) {
+  .button__img--nav {
+    width: 8.125rem;
+  }
+
   .compass__note {
     margin-top: var(--s-xl-xl);
     align-self: end;
@@ -1838,6 +1844,10 @@ html:not(.has-js) .object {
 }
 
 @media only screen and (min-width: 600px) {
+  .hero__house.before {
+    margin-top: var(--s-l-xl);
+  }
+
   .third__3 {
     width: clamp(8rem, 20vw, 10rem);
   }
@@ -1851,7 +1861,7 @@ html:not(.has-js) .object {
   .plantin__name::after {
     transform: rotate(80deg);
     left: 10%;
-    top: 30%;
+    top: 3rem;
   }
 
   .plantin__name {
@@ -2087,11 +2097,6 @@ html:not(.has-js) .object {
 
   .plantin {
     margin-top: -2rem;
-  }
-
-  .plantin__name::after {
-    left: 10%;
-    top: 26%;
   }
 
   .start {
