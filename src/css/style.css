@@ -1186,7 +1186,7 @@ html:not(.has-js) .quiz__guess {
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: 0.7rem;
-  background-size: cover;
+  background-size: contain;
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   grid-template-rows: repeat(3, 33%);
@@ -1796,6 +1796,16 @@ html:not(.has-js) .object {
 }
 
 /* media */
+@media (pointer: fine) {
+  .desktop-show {
+    display: inline;
+  }
+
+  .phone-show {
+    display: none;
+  }
+
+}
 
 @media (prefers-reduced-motion) {
   @keyframes bounce {
@@ -2113,6 +2123,18 @@ html:not(.has-js) .object {
     bottom: 10%;
     left: -20%;
   }
+
+  .reveal__note {
+    grid-row: 2;
+    grid-column: 1;
+    max-width: 13rem;
+  }
+
+  .reveal__text {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
 }
 
 @media only screen and (min-width: 1000px) {
@@ -2301,7 +2323,6 @@ html:not(.has-js) .object {
     align-self: end;
     justify-self: end;
     margin: 0;
-
   }
 
   .printmark1 {
@@ -2419,6 +2440,46 @@ html:not(.has-js) .object {
   .printmark1__img {
     margin-left: var(--s-0)
   }
+
+  .reveal__images {
+    grid-column: 1;
+    grid-row: 1/ span 2;
+    height: 25rem;
+    width: auto;
+    align-self: start;
+  }
+
+  .reveal__note {
+    grid-row: 2;
+    grid-column: 2;
+    max-width: 18rem;
+    flex-flow: row;
+    align-items: center;
+    gap: var(--s-0);
+  }
+
+  .note__arrow--reveal {
+    transform: rotate(-90deg);
+    margin-right: var(--s-s);
+    margin-top: var(--s-0);
+  }
+
+  .reveal__text {
+    grid-row: 1;
+    grid-column: 2;
+    margin: 0;
+    margin-left: var(--space-m-3xl);
+    height: fit-content;
+  }
+
+  .koepel__reveal {
+    gap: 0;
+    justify-content: center;
+    grid-template-columns: auto;
+    height: fit-content;
+    margin-top: var(--s-l-xl-2);
+  }
+
 }
 
 @media only screen and (min-width: 1200px) {
@@ -2569,6 +2630,15 @@ html:not(.has-js) .object {
   .words {
     background-size: contain
   }
+
+  .koepel__reveal {
+    max-width: clamp(46.875rem, 0rem + 62.5vw, 56.25rem);
+    margin-top: 0;
+  }
+
+  .reveal__text1 {
+    max-width: 20rem;
+  }
 }
 
 @media only screen and (min-width: 1500px) {
@@ -2584,5 +2654,9 @@ html:not(.has-js) .object {
 
   .intro__math {
     margin: -10rem 0;
+  }
+
+  .words {
+    max-width: 1200px;
   }
 }
