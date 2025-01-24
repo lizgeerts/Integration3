@@ -2513,7 +2513,7 @@ html:not(.has-js) .object {
   }
 
   .motto {
-    background-image: url(/Integration3/src/assets/img/motto-bg-1000.svg);
+    background-image: url(../assets/img/motto-bg-1000.svg);
     background-size: 100%;
     background-position-y: 5rem;
   }
@@ -2752,7 +2752,7 @@ html:not(.has-js) .object {
   }
 
   .motto {
-    background-image: url(/Integration3/src/assets/img/motto-bg-large.svg);
+    background-image: url(..assets/img/motto-bg-large.svg);
     background-size: 100%;
     background-position-y: 5rem;
     display: flex;
@@ -2815,7 +2815,7 @@ html:not(.has-js) .object {
   }
 
   .motto {
-    background-image: url(/Integration3/src/assets/img/motto-bg-full.svg);
+    background-image: url(../assets/img/motto-bg-full.svg);
     background-size: 100%;
     background-position-y: 5rem;
   }
