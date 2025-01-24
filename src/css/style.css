@@ -149,6 +149,11 @@ img {
   overflow: hidden;
   place-self: center;
   width: 100vw;
+  font-family: "Yaldevi", serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 134%;
 }
 
 .visually-hidden {
