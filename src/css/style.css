@@ -2754,7 +2754,7 @@ html:not(.has-js) .object {
   .motto {
     background-image: url(../assets/img/motto-bg-large.svg);
     background-size: 100%;
-    background-position-y: 5rem;
+    background-position-y: 3rem;
     display: flex;
     flex-flow: column;
   }
@@ -2794,6 +2794,7 @@ html:not(.has-js) .object {
   }
 
 }
+
 
 @media only screen and (min-width: 1500px) {
   .introduction {
