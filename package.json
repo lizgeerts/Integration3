@@ -9,7 +9,8 @@
     "preview": "vite preview "
   },
   "devDependencies": {
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "vite-plugin-html": "^3.2.2"
   },
   "dependencies": {
     "@lottiefiles/dotlottie-web": "^0.39.0",
