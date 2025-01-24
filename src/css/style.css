@@ -2314,6 +2314,7 @@ html:not(.has-js) .object {
   .stamp {
     padding: 0;
   }
+
 }
 
 @media only screen and (min-width: 1500px) {

@@ -354,7 +354,8 @@ const introAnimations = () => {
 const stampAnimation = () => {
   gsap.set(inner, { opacity: 0 });
   let stampTween;
-
+  gsap.set(stamp, { y: 0, x: 0 });
+  
   if (!hasReducedMotion) {
     stampTween = gsap.to(stamp, {
       y: -10,
@@ -367,11 +368,11 @@ const stampAnimation = () => {
 
   Draggable.create(stamp, {
     type: "x,y",
-    edgeResistance: 0.65, 
-    bounds: window,
+    edgeResistance: 0.65,
+    bounds: ".stamp",
     onPress: () => {
       stamp.style.cursor = "grabbing";
-      stampTween.pause(); 
+      stampTween.pause();
     },
     onDrag: () => {
       const stampRect = stamp.getBoundingClientRect();
@@ -390,7 +391,7 @@ const stampAnimation = () => {
     },
     onRelease: () => {
       stamp.style.cursor = "grab";
-      stampTween.restart(); 
+      stampTween.restart();
 
       gsap.to(stamp, {
         x: 0,
