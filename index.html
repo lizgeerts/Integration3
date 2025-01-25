@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="website printmark christophe plantin">
     <title>Mark of the Compasses</title>
     <link rel="stylesheet" href="./src/css/reset.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,13 +48,15 @@
        <nav class="navigation">
          <img class="navigation__hamb hamburger" src="./src/assets/img/hamburger.svg" width="42" height="27" alt="hamburger menu"> 
           <picture class="navigation__logo">
-            <source sizes="(min-width: 600px) 125px, 90px" srcset="./src/assets/img/Logo-125.avif 125w,
+            <source sizes="(min-width: 600px) 125px, 90px" srcset="
+                                      ./src/assets/img/Logo-240.avif 240w,
+                                      ./src/assets/img/Logo-125.avif 125w,
                                       ./src/assets/img/Logo-90.avif 90w,
                                       ./src/assets/img/Logo-60.avif 60w" type="image/avif">
           
             <img class="navigation__logo" src="./src/assets/img/Logo-125.png" width="125"
-              alt="pair of compasses" srcset="
-                                ./src/assets/img/Logo-125.png
+              alt="pair of compasses" srcset=" ./src/assets/img/Logo-240.png 240w,
+                                ./src/assets/img/Logo-125.png 125w,
                                 ./src/assets/img/Logo-90.png 90w,
                                 ./src/assets/img/Logo-60.png 60w" sizes="(min-width: 600px) 125px, 90px">
           </picture>
@@ -193,8 +196,8 @@
       <section id="introduction" class="intro" >
         <h2 class="visually-hidden">Introduction</h2>
         <div class="intro__cp">
-          <img class="cp__img cp__img--desktop" src="./src/assets/img/intro-left.svg" width="752">
-          <img class="cp__img cp__img--phone" src="./src/assets/img/intro-left-phone.svg" width="160">
+          <img class="cp__img cp__img--desktop" src="./src/assets/img/intro-left.svg" width="752" alt="circles">
+          <img class="cp__img cp__img--phone" src="./src/assets/img/intro-left-phone.svg" width="160" alt="circles">
           <picture class="cp__passer">
             <source sizes="190px" srcset="./src/assets/img/compasses-intro-480.avif 480w,
                                                 ./src/assets/img/compasses-intro-406.avif 406w,
@@ -224,7 +227,7 @@
           </div>
         </div>
         <div class="intro__math">
-          <img class="math__img" src="./src/assets/img/intr0-right.svg"> 
+          <img class="math__img" src="./src/assets/img/intr0-right.svg" alt="circles"> 
         </div>
       </section>
       <section id="stamp" class="stamp">
@@ -235,7 +238,7 @@
         </div>
         <div class="interactive-note stamp__note">
           <p class="note__text optima"> Drag the stamp and hover over the frame to uncover the iconic printmark!</p>
-          <img class="note__arrow note__arrow--stamp" src="./src/assets/img/arrow-stamp.svg">
+          <img class="note__arrow note__arrow--stamp" src="./src/assets/img/arrow-stamp.svg" alt="arrow">
         </div>
         <div class="stamp__pickup">
           <picture class="stamp__img">
@@ -278,7 +281,7 @@
           motto and the pair of compasses, fit perfectly together.</p>
           <div class="extra-info extra-info-stamp">
             <a href="#popup" class="extra-img">
-              <img class="extra__img--pop" src="./src/assets/img/extra.svg" width="70">
+              <img class="extra__img--pop" src="./src/assets/img/extra.svg" width="70" alt="button">
             </a>
             <div id="popup" class="extra-popup extra-popup-stamp">
               <a href="#stamp" class="close-popup">
@@ -298,7 +301,7 @@
           </div>
           <div class="printmark1">
             <h3 class="printmark1__name">A vine-dresser pruning tendrils around an elm tree</h3>
-            <img class="printmark1__number" src="./src/assets/img/printmark-1.svg" width="169">
+            <img class="printmark1__number" src="./src/assets/img/printmark-1.svg" width="169" alt="number 1">
             <picture class="printmark1__img">
               <source sizes="(min-width: 600px) 254px, 187px"
                       srcset="./src/assets/img/printmark-1-254.avif 254w,
@@ -312,7 +315,7 @@
               <div class="quiz__motto" id="quiz__motto">
                 <h2 class="quiz__title red"><span class="bold">Motto:</span></h2>
                 <p class="quiz__latin red" id="motto">"Exerce imperia et ramos compesce fluentes"</p>
-                <a class="quiz__guess button-grid svg__big" id="guess-button">
+                <div class="quiz__guess button-grid svg__big" id="guess-button">
                   <p class="button__text red">Guess Translation!</p>
                   <svg class="button__img" xmlns="http://www.w3.org/2000/svg" width="226" height="57" viewBox="0 0 226 57" fill="none">
                     <path 
@@ -322,14 +325,14 @@
                       d="M31.7097 1H28.5C13.3122 1 1 13.3122 1 28.5V28.5C1 43.6878 13.3122 56 28.5 56H164.484M87.7097 1H197.5C212.688 1 225 13.3122 225 28.5V28.5C225 43.6878 212.688 56 197.5 56H197M76.871 1H59.7097M38.9355 1H44.3548H49.7742"
                       stroke="#B10B3A" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
-                </a>
+                </div>
               </div>
               <div  class="quiz__input" id="quiz__input" >
-                <img class="quiz__close" src="./src/assets/img/close-quiz.svg" width="50">
+                <img class="quiz__close" src="./src/assets/img/close-quiz.svg" width="50" alt="close button">
                 <h2 class="quiz__title red">What does this mean?</h2>
                 <p class="quiz__latin red" id="motto-quiz"><span class="bold">"Exerce imperia et ramos compesce fluentes"</span></p>
                 <div class="quiz__options options">
-                  <a class="option button-grid" data-correct="false">
+                  <div class="option button-grid" data-correct="false">
                     <p class="button__text red button__text--quiz">A. Practice patience and bind the wandering pages</p>
                     <svg class="button__img" width="293" height="66" viewBox="0 0 296 68" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path class="svg__red"
@@ -338,8 +341,8 @@
                       <path class="svg__red" d="M38.4497 1H264.357" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
                       <path class="svg__red" d="M39.6577 67H263.149" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
                     </svg>
-                  </a>
-                  <a class="option button-grid" data-correct="false">
+                  </div>
+                  <div class="option button-grid" data-correct="false">
                     <p class="button__text red button__text--quiz">B. Expand your reach and guide the flowing ink</p>
                     <svg class="button__img" width="293" height="66" viewBox="0 0 296 68" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path class="svg__red"
@@ -348,8 +351,8 @@
                       <path class="svg__red" d="M38.4497 1H264.357" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
                       <path class="svg__red" d="M39.6577 67H263.149" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
                     </svg>
-                  </a>
-                  <a class="option button-grid" data-correct="true">
+                  </div>
+                  <div class="option button-grid" data-correct="true">
                     <p class="button__text red button__text--quiz">C. Exercise authority and restrain the flowing branches</p>
                     <svg class="button__img" width="293" height="66" viewBox="0 0 296 68" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path class="svg__red"
@@ -358,7 +361,7 @@
                       <path class="svg__red" d="M38.4497 1H264.357" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
                       <path class="svg__red" d="M39.6577 67H263.149" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
                     </svg>
-                  </a>
+                  </div>
                 </div>
               </div>
               <div class="quiz-feedback">
@@ -368,7 +371,7 @@
           </div>
           <div class="printmark2">
             <h3 class="printmark2__name">A vine tendril</h3>
-            <img class="printmark2__number" src="./src/assets/img/printmark2.svg" width="202">
+            <img class="printmark2__number" src="./src/assets/img/printmark2.svg" width="202" alt="number 2">
             <picture class="printmark2__img">
               <source sizes="(min-width: 600px) 240px, 180px" srcset="./src/assets/img/printmark-2-240.avif 240w,
                                 ./src/assets/img/printmark-2-180.avif 180w,
@@ -381,7 +384,7 @@
               <div class="quiz__motto" id="quiz__motto">
                 <h2 class="quiz__title red"><span class="bold">Motto:</span></h2>
                 <p class="quiz__latin red" id="motto">“Christus vera vitis”</p>
-                <a class="quiz__guess button-grid svg__big" id="guess-button">
+                <div class="quiz__guess button-grid svg__big" id="guess-button">
                   <p class="button__text red">Guess Translation!</p>
                   <svg class="button__img" xmlns="http://www.w3.org/2000/svg" width="226" height="57" viewBox="0 0 226 57"
                     fill="none">
@@ -392,15 +395,15 @@
                       d="M31.7097 1H28.5C13.3122 1 1 13.3122 1 28.5V28.5C1 43.6878 13.3122 56 28.5 56H164.484M87.7097 1H197.5C212.688 1 225 13.3122 225 28.5V28.5C225 43.6878 212.688 56 197.5 56H197M76.871 1H59.7097M38.9355 1H44.3548H49.7742"
                       stroke="#B10B3A" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
-                </a>
+                </div>
               </div>
               <div class="quiz__input" id="quiz__input">
-                <img class="quiz__close quiz__close--2" src="./src/assets/img/close-quiz.svg" width="50">
+                <img class="quiz__close quiz__close--2" src="./src/assets/img/close-quiz.svg" width="50" alt="close button">
                 <h2 class="quiz__title red">What does this mean?</h2>
                 <p class="quiz__latin red" id="motto-quiz"><span class="bold">“Christus vera vitis”</span>
                 </p>
                 <div class="quiz__options options">
-                  <a class="option button-grid" data-correct="true">
+                  <div class="option button-grid" data-correct="true">
                     <p class="button__text red button__text--quiz">A. Christ is the true vine</p>
                     <svg class="button__img" width="245" height="44" viewBox="0 0 245 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path class="svg__red"
@@ -409,8 +412,8 @@
                       <path class="svg__red" d="M32 1H219" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
                       <path class="svg__red" d="M33 43H218" stroke="#333332" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="5 5" />
                     </svg>
-                  </a>
-                  <a class="option button-grid" data-correct="false">
+                  </div>
+                  <div class="option button-grid" data-correct="false">
                     <p class="button__text red button__text--quiz">B. Follow the vision</p>
                     <svg class="button__img" width="245" height="44" viewBox="0 0 245 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path class="svg__red"
@@ -421,8 +424,8 @@
                       <path class="svg__red" d="M33 43H218" stroke="#333332" stroke-width="0.7" stroke-linecap="round"
                         stroke-dasharray="5 5" />
                     </svg>
-                  </a>
-                  <a class="option button-grid" data-correct="false">
+                  </div>
+                  <div class="option button-grid" data-correct="false">
                     <p class="button__text red button__text--quiz">C. Christ was a printer</p>
                     <svg class="button__img" width="245" height="44" viewBox="0 0 245 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path class="svg__red"
@@ -433,7 +436,7 @@
                       <path class="svg__red" d="M33 43H218" stroke="#333332" stroke-width="0.7" stroke-linecap="round"
                         stroke-dasharray="5 5" />
                     </svg>
-                  </a>
+                  </div>
                 </div>
               </div>
               <div class="quiz-feedback">
@@ -443,7 +446,7 @@
           </div>
           <div id="history" class="extra-info extra-info-history">
             <a href="#popup-history" class="extra-img">
-              <img class="extra__img--pop" src="./src/assets/img/extra.svg" width="70">
+              <img class="extra__img--pop" src="./src/assets/img/extra.svg" width="70" alt="button">
             </a>
             <div id="popup-history" class="extra-popup">
               <a href="#history" class="close-popup">
@@ -459,7 +462,7 @@
           <img class="third__3" src="./src/assets/img/printmark3.svg" alt="number 3" width="110">
           <div class="interactive-note compass__note">
             <p class="note__text optima">Swing the left leg of the compasses to draw a circle</p>
-            <img class="note__arrow note__arrow--compass" src="./src/assets/img/arrow-stamp.svg">
+            <img class="note__arrow note__arrow--compass" src="./src/assets/img/arrow-stamp.svg" alt="arrow">
           </div>
           <p class="third__bgtext optima">Harmony</p>
           <div class="third__compasses static">
@@ -564,7 +567,7 @@
           </div>
           <div class="interactive-note reveal__note">
             <p class="note__text optima"><span class="desktop-show">Hover</span> <span class="phone-show">Press</span> the words above to reveal Plantins principles</p>
-            <img class="note__arrow note__arrow--reveal" src="./src/assets/img/arrow-reveal.svg">
+            <img class="note__arrow note__arrow--reveal" src="./src/assets/img/arrow-reveal.svg" alt="arrow">
           </div>
           <div class="reveal__text">
             <p class="reveal__text1">The stationary point of the compasses represents <span class="bold">constancy</span>, the foundation essential to any effort. The moving arm,
@@ -624,7 +627,7 @@
                       ./src/assets/img/labor-hover-470.png 470w"
                 sizes="(min-width: 800px) 430px, (min-width: 600px) 430px, 395px">
             </picture>
-            <img class="labor__l" src="./src/assets/img/L.svg">
+            <img class="labor__l" src="./src/assets/img/L.svg" alt="letter L">
           </a>
           <div class="vs__compass">
             <picture class="vs__compass--img">
@@ -647,7 +650,7 @@
                                 ./src/assets/img/constancy-hover-470.png 470w"
                 sizes="(min-width: 800px) 430px, (min-width: 600px) 430px, 395px">
             </picture>
-            <img class="constancy__c" src="./src/assets/img/C.svg">
+            <img class="constancy__c" src="./src/assets/img/C.svg" alt="letter C">
           </a>
         </article>
       </section>
@@ -655,8 +658,8 @@
        <article class="next__first">
           <div class="curve-text">
             <div class="curve">
-              <img class="curve curve-small" src="./src/assets/img/curve.svg">
-              <img class="curve curve-large" src="./src/assets/img/ellipse-large.svg">
+              <img class="curve curve-small" src="./src/assets/img/curve.svg" alt="curve">
+              <img class="curve curve-large" src="./src/assets/img/ellipse-large.svg" alt="curve">
             </div>
             <div class="curve curve--text">
               <img class="curve curve--text curve--text-small" src="./src/assets/img/curve-text.svg" alt="iconic works with the message">
@@ -681,7 +684,7 @@
           <div class="object">
             <div class="interactive-note object__note">
               <p class="note__text optima">Give the bible to Plantin!</p>
-              <img class="note__arrow note__arrow--object" src="./src/assets/img/arrow-stamp.svg">
+              <img class="note__arrow note__arrow--object" src="./src/assets/img/arrow-stamp.svg" alt="arrow">
             </div>
             <picture class="object__img">
               <source sizes="(min-width: 800px) 220px, (min-width: 600px) 180px, 145px" srcset="./src/assets/img/bible-145.avif 145w,
@@ -780,11 +783,12 @@
           </div>
         </div>
         <picture class="footer__logo footer__logo--wrapper">
-          <source sizes="(min-width: 600px) 125px, (min-width:430px) 70px, 40px" srcset="./src/assets/img/Logo-125.avif 125w,
+          <source sizes="(min-width: 600px) 125px, (min-width:430px) 70px, 40px" srcset="./src/assets/img/Logo-240.avif 240w,
+                                              ./src/assets/img/Logo-125.avif 125w,
                                               ./src/assets/img/Logo-90.avif 90w,
                                               ./src/assets/img/Logo-60.avif 60w" type="image/avif">
         
-          <img class="footer__logo" src="./src/assets/img/Logo-125.png" width="125" alt="pair of compasses" srcset="
+          <img class="footer__logo" src="./src/assets/img/Logo-125.png" width="125" alt="pair of compasses" srcset="./src/assets/img/Logo-240.png 240w,
                                         ./src/assets/img/Logo-125.png
                                         ./src/assets/img/Logo-90.png 90w,
                                         ./src/assets/img/Logo-60.png 60w" sizes="(min-width: 600px) 125px, (min-width:430px) 70px, 40px">
