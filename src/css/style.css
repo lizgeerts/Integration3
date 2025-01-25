@@ -743,6 +743,7 @@ html:not(.has-js) .nojs-hide {
   display: flex;
   flex-flow: column;
   padding: 0 var(--space-m-3xl);
+  place-self: center;
 }
 
 .note__text {

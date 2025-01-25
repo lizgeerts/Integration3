@@ -38,6 +38,11 @@ const lottieInstance = (canvasSelector, src, loop, marker) => {
 const init = () => {
   document.documentElement.classList.add('has-js');
 
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  if (isSafari) {
+    document.querySelector('.stamp').style.margin = '0 auto';
+  }
+
   passerSwing();
   loaderScreen();
   hamburgerMenu();
