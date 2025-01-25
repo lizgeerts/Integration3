@@ -765,6 +765,10 @@ const dragBook = () => {
     onDragEnd: function () {
       if (isOverlapping(book, portrait)) {
         fadeInOut();
+        const discover = document.querySelector(".next");
+        if (discover) {
+          discover.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
     },
   });
@@ -802,6 +806,7 @@ const fadeInOut = () => {
       opacity: 0,
       duration: 0.5,
     });
+
 }
 
 const biblePopUp = () => {

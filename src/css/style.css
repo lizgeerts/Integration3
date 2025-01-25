@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -1864,6 +1865,10 @@ html:not(.has-js) .object {
   .hero__house.before {
     margin-top: 7rem;
   }
+
+  html.has-js .next__discover {
+    margin-top: var(--s-xxl-xxl);
+  }
 }
 
 @media only screen and (min-width: 600px) {
@@ -1942,7 +1947,15 @@ html:not(.has-js) .object {
     width: 9rem;
   }
 
-  
+  .discover__block {
+    max-width: 570px;
+    align-self: end;
+    align-items: end;
+  }
+
+  .discover__text {
+    text-align: end;
+  }
 }
 
 @media only screen and (min-width: 800px) {
@@ -2177,6 +2190,22 @@ html:not(.has-js) .object {
 
   .portrait {
     margin-top: -4rem;
+  }
+
+  .discover__img {
+    margin-top: -5rem;
+  }
+
+  .discover__pic::before {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .input {
+    border-bottom: 2px solid var(--red);
+    padding-bottom: 5px;
+    width: 20rem;
+    font-size: var(--f-0);
   }
 }
 
@@ -2641,6 +2670,23 @@ html:not(.has-js) .object {
     margin-top: var(--f-l-xl);
   }
 
+  .next__discover {
+    flex-flow: row;
+  }
+
+  .discover__img {
+    order: -1;
+  }
+
+  .discover__text {
+    text-align: start;
+  }
+
+  .discover__block {
+    align-items: start;
+    margin-left: var(--s-l-xl-2);
+    margin-top: var(--s-s-m);
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -2881,6 +2927,13 @@ html:not(.has-js) .object {
     margin-top: -9%;
     width: 90vw;
   }
+
+  .discover__block {
+    align-items: start;
+    margin-left: var(--s-intro);
+    align-self: center;
+  }
+
 }
 
 
@@ -2911,6 +2964,12 @@ html:not(.has-js) .object {
 
   .motto__vs {
     max-width: 85rem;
+  }
+
+  .discover__block {
+    align-items: start;
+    margin-left: var(--width-text);
+    align-self: center;
   }
 
 }
