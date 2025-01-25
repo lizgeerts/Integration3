@@ -572,3 +572,15 @@ a {
     margin-right: var(--space-m-3xl);
   }
 }
+
+@media only screen and (min-width: 1800px) {
+  body {
+    display: grid;
+    place-content: center;
+  }
+
+  .labor__total, .atelier, .constancy__total{
+    max-width: 1800px;
+  }
+
+}
