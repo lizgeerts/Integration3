@@ -116,7 +116,6 @@ body {
   background-color: var(--bg);
   margin: 0 auto;
   font-family: "Yaldevi", serif;
-  font-optical-sizing: auto;
   font-weight: normal;
   font-style: normal;
   color: var(--black);
@@ -1731,6 +1730,7 @@ html:not(.has-js) .object {
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: var(--f-xxxl);
+  position: relative;
 }
 
 .museum {
@@ -1793,12 +1793,19 @@ html:not(.has-js) .object {
   flex-flow: row;
   margin-top: var(--s-l-m);
   gap: 1.5rem;
-  margin-bottom: 5rem;
+  margin-bottom: var(--s-xxl-xxl);
 }
 
 .curve--text-large,
 .curve-large {
   display: none;
+}
+
+.footer__logo--wrapper {
+  position: absolute;
+  bottom: clamp(0rem, -0.625rem + 2.7778vw, 1.875rem);
+  width: fit-content;
+  right: var(--space-m-3xl);
 }
 
 /* media */
@@ -1868,6 +1875,19 @@ html:not(.has-js) .object {
 
   html.has-js .next__discover {
     margin-top: var(--s-xxl-xxl);
+  }
+
+  .footer__nav {
+    gap: clamp(1.875rem, -0.2537rem + 7.9208vw, 6.875rem);
+    margin-top: var(--s-l-xl-2)
+  }
+
+  .link__item:hover {
+    color: var(--red);
+  }
+
+  .link__item {
+    transition: color 0.2s ease-in-out;
   }
 }
 
@@ -1955,6 +1975,10 @@ html:not(.has-js) .object {
 
   .discover__text {
     text-align: end;
+  }
+
+  .museum {
+    margin-top: -7rem;
   }
 }
 
@@ -2687,6 +2711,23 @@ html:not(.has-js) .object {
     margin-left: var(--s-l-xl-2);
     margin-top: var(--s-s-m);
   }
+
+  .footer {
+    flex-flow: row;
+    background-image: url(../assets/img/footer-bg-big.svg);
+    background-position-x: 50%;
+    justify-content: space-between;
+    padding: 0 var(--space-m-3xl) var(--s-l-xl) var(--space-m-3xl);
+  }
+
+  .footer__nav {
+    margin-bottom: 0;
+    margin-top: var(--s-l-xl);
+  }
+
+  .museum {
+    margin-top: -2rem;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -2932,6 +2973,11 @@ html:not(.has-js) .object {
     align-items: start;
     margin-left: var(--s-intro);
     align-self: center;
+  }
+
+  .footer {
+    justify-content: center;
+    gap: clamp(7rem, 7rem + 7vw, 24rem);
   }
 
 }
