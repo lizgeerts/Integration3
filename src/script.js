@@ -8,6 +8,7 @@ const hasReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").m
 const isSemiLarge = window.matchMedia("(min-width: 800px)").matches;
 const isLarge = window.matchMedia("(min-width: 1200px)").matches;
 const is1000 = window.matchMedia("(min-width: 1000px)").matches;
+const is1900 = window.matchMedia("(min-width: 1900px)").matches;
 const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 const loadingScreen = document.querySelector(".loading");
 
@@ -605,6 +606,8 @@ const horizontalScroll = () => {
   if (is1000) {
     const horizontal = document.querySelector(".horizontal");
 
+    const endValue = is1900 ? window.innerWidth : horizontal.scrollWidth;
+
     gsap.to(horizontal, {
       x: () => -(horizontal.scrollWidth - window.innerWidth),
       ease: "none",
@@ -613,11 +616,11 @@ const horizontalScroll = () => {
         pin: horizontal,
         scrub: 1,
         start: "bottom 90%",
-        end: () => `+=${horizontal.scrollWidth}`,
-        markers: true
+        end: () => `+=${endValue}`,
       },
     });
   }
+
 }
 
 const revealImages = () => {

@@ -2328,7 +2328,7 @@ html:not(.has-js) .object {
   }
 
   body {
-    background-image: url(../assets/img/texture-desktop-hero.png); 
+    background-image: url(../assets/img/texture-desktop-hero.png);
   }
 
   .sign,
@@ -3018,6 +3018,28 @@ html:not(.has-js) .object {
     align-items: start;
     margin-left: var(--width-text);
     align-self: center;
+  }
+
+}
+
+@media only screen and (min-width: 1900px) {
+
+  .navigation {
+    max-width: 1700px;
+  }
+
+  .hero,
+  .intro,
+  .history,
+  .third {
+    max-width: 1800px;
+  }
+
+  .curve,
+  .curve-text,
+  .next__first,
+  .next {
+    max-width: 1800px;
   }
 
 }
