@@ -122,6 +122,11 @@ body {
   line-height: 134%;
   overflow-x: hidden;
   /*overflow-y: hidden;*/
+  background-image: url(../assets/img/texture-phone-hero.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat
 }
 
 html:not(.has-js) body {
@@ -269,9 +274,6 @@ a {
 header {
   width: 100vw;
   overflow: hidden;
-  background-image: url(../assets/img/texture-phone-hero.png);
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .navigation {
@@ -2325,8 +2327,8 @@ html:not(.has-js) .object {
     margin-left: var(--s-xxxl);
   }
 
-  header {
-    background-image: url(../assets/img/texture-desktop-hero.png);
+  body {
+    background-image: url(../assets/img/texture-desktop-hero.png); 
   }
 
   .sign,
