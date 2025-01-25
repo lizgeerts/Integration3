@@ -51,6 +51,7 @@ const init = () => {
   intoPages();
   dragBook();
   //  passerDown();
+  biblePopUp();
 }
 
 const passerSwing = () => {
@@ -356,7 +357,7 @@ const stampAnimation = () => {
   gsap.set(inner, { opacity: 0 });
   let stampTween;
   gsap.set(stamp, { y: 0, x: 0 });
-  
+
   if (!hasReducedMotion) {
     stampTween = gsap.to(stamp, {
       y: -10,
@@ -801,6 +802,38 @@ const fadeInOut = () => {
       opacity: 0,
       duration: 0.5,
     });
+}
+
+const biblePopUp = () => {
+  const bible = document.querySelector(".object__img");
+  const note = document.querySelector(".object__note");
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".portrait",
+      pin: false,
+      start: "top 110",
+      end: `top`,
+    }
+  });
+
+  tl
+    .fromTo(bible, {
+      y: 100,
+      opacity: 0
+    }, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    })
+    .fromTo(note, {
+      y: 100,
+      opacity: 0
+    }, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    }, "-=0.7");
 }
 
 /*

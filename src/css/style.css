@@ -1795,6 +1795,11 @@ html:not(.has-js) .object {
   margin-bottom: 5rem;
 }
 
+.curve--text-large,
+.curve-large {
+  display: none;
+}
+
 /* media */
 @media (pointer: fine) {
   .desktop-show {
@@ -1936,6 +1941,8 @@ html:not(.has-js) .object {
   .compasses__leg {
     width: 9rem;
   }
+
+  
 }
 
 @media only screen and (min-width: 800px) {
@@ -2161,6 +2168,15 @@ html:not(.has-js) .object {
 
   .motto__labor {
     align-self: center;
+  }
+
+  .object {
+    margin-top: var(--f-xl);
+    gap: var(--s-s-m);
+  }
+
+  .portrait {
+    margin-top: -4rem;
   }
 }
 
@@ -2591,6 +2607,40 @@ html:not(.has-js) .object {
     margin-bottom: var(--s-xxl-xxl);
   }
 
+  .curve-text {
+    margin-top: var(--s-l-xl-2);
+    grid-row: 1;
+    grid-column: 1/span 2;
+    justify-self: center;
+  }
+
+  .next__first {
+    display: grid;
+  }
+
+  .portrait {
+    grid-column: 1/ span 2;
+    justify-self: center;
+    grid-row: 2;
+  }
+
+  .object {
+    grid-row: 2;
+    grid-column: 1;
+    flex-flow: column;
+    margin-left: var(--s-s-m);
+    align-self: start;
+  }
+
+  .object__note {
+    order: 0;
+  }
+
+  .note__arrow--object {
+    transform: rotate(90deg) scaleX(-1);
+    margin-top: var(--f-l-xl);
+  }
+
 }
 
 @media only screen and (min-width: 1200px) {
@@ -2760,7 +2810,7 @@ html:not(.has-js) .object {
   }
 
   .motto__vs {
-    max-width: 80rem;
+    max-width: 72rem;
     width: 100%;
     align-self: center;
   }
@@ -2793,6 +2843,44 @@ html:not(.has-js) .object {
     margin-top: 10rem;
   }
 
+  .object {
+    grid-row: 2;
+    grid-column: 1;
+    flex-flow: column;
+    margin-left: var(--space-m-3xl);
+    align-self: end;
+  }
+
+  .curve-text {
+    width: 100vw;
+    margin-top: var(--f-big);
+    margin-bottom: var(--f-l)
+  }
+
+  .portrait {
+    margin-top: 0rem;
+  }
+
+  .curve,
+  .curve--text {
+    width: 100vw;
+  }
+
+  .curve--text-small,
+  .curve-small {
+    display: none;
+  }
+
+  .curve--text-large,
+  .curve-large {
+    display: block;
+    height: fit-content;
+  }
+
+  .curve--text-large {
+    margin-top: -9%;
+    width: 90vw;
+  }
 }
 
 
@@ -2819,6 +2907,10 @@ html:not(.has-js) .object {
     background-image: url(../assets/img/motto-bg-full.svg);
     background-size: 100%;
     background-position-y: 5rem;
+  }
+
+  .motto__vs {
+    max-width: 85rem;
   }
 
 }
