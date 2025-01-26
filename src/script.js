@@ -98,6 +98,12 @@ const hamburgerMenu = () => {
 const toggleMenu = () => {
   const menu = document.querySelector('.menu');
   menu.classList.toggle('active');
+
+  if (menu.classList.contains('active')) {
+    document.body.style.overflow = 'hidden'; // Disable scrolling
+  } else {
+    document.body.style.overflow = ''; // Re-enable scrolling
+  }
 }
 
 const heroAnimations = () => {

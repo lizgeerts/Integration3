@@ -46,7 +46,9 @@
       </div>
       <header class="header">
        <nav class="navigation">
-         <img class="navigation__hamb hamburger" src="./src/assets/img/hamburger.svg" width="42" height="27" alt="hamburger menu"> 
+        <a href="#menu" class="navigation__hamb hamburger">
+          <img src="./src/assets/img/hamburger.svg" width="42" height="27" alt="hamburger menu">
+        </a>
           <picture class="navigation__logo">
             <source sizes="(min-width: 600px) 125px, 90px" srcset="
                                       ./src/assets/img/Logo-240.avif 240w,
@@ -71,8 +73,10 @@
             </svg>
             <p class="button__text">Tickets</p></a>
        </nav>
-       <nav class="menu">
-          <img class="close-btn" src="./src/assets/img/close.svg" alt="close button" width="76">
+       <nav class="menu" id="menu">
+          <a href="#" class="close-btn">
+            <img src="./src/assets/img/close.svg" alt="close button" width="76">
+          </a>
           <div class="menu__museum">
             <h2 class="menu__title menu__title--museum optima">Museum Links</h2>
             <ul class="menu__list menu__list--m">

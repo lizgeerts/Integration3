@@ -390,11 +390,19 @@ header {
 }
 
 *+.menu__item {
-  margin-top: var(--s-3)
+  margin-top: 1.7rem;
 }
 
 .menu__item:hover {
   color: var(--red);
+}
+
+.menu__link:hover {
+  color: var(--red);
+}
+
+.menu__link {
+  transition: color 0.2s ease-in-out
 }
 
 .menu__story::before {
@@ -423,11 +431,23 @@ header {
   margin-top: 0;
 }
 
-.menu.active {
+html:not(.has-js) .menu:target {
   display: block;
 }
 
-.menu {
+html:not(.has-js) .menu {
+  display: none;
+}
+
+body:has(.menu:target) {
+  overflow: hidden;
+}
+
+html.has-js .menu.active {
+  display: block;
+}
+
+html.has-js .menu {
   display: none;
 }
 
@@ -1895,6 +1915,10 @@ html:not(.has-js) .object {
 }
 
 @media only screen and (min-width: 600px) {
+  *+.menu__item {
+    margin-top: var(--s-3);
+  }
+
   .hero__house.before {
     margin-top: var(--s-l-xl);
   }
@@ -2271,11 +2295,22 @@ html:not(.has-js) .object {
   }
 
   .menu.active {
-    display: flex;
     flex-flow: row;
     justify-content: space-between;
     align-items: center;
     padding: var(--s-3) var(--space-m-3xl);
+  }
+
+  html.has-js .menu.active {
+    display: flex;
+  }
+
+  html:not(.has-js) .menu:target {
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--s-3) var(--space-m-3xl);
+    display: flex;
   }
 
   .close-btn {
