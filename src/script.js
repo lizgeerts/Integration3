@@ -1,7 +1,7 @@
 import { DotLottie } from '@lottiefiles/dotlottie-web';
 
 gsap.registerPlugin(Draggable);
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const mm = gsap.matchMedia();
 const hasReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -12,7 +12,6 @@ const is1900 = window.matchMedia("(min-width: 1900px)").matches;
 const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 const loadingScreen = document.querySelector(".loading");
 
-let drag = false;
 const stamp = document.querySelector('.stamp__img');
 const inner = document.querySelector('.pickup__inner');
 
@@ -56,28 +55,33 @@ const init = () => {
   hoverImages();
   intoPages();
   dragBook();
-  //  passerDown();
   biblePopUp();
+  quoteTyped();
 }
 
 const passerSwing = () => {
-  if (hasReducedMotion) {
-    gsap.set(".plantin-hero--pa", {
-      rotation: 0,
-    });
-  } else {
-    gsap.set(".plantin-hero--pa", {
-      rotation: -4.3,
-    });
-    gsap.to(".plantin-hero--pa", {
-      transformOrigin: '40% top',
-      rotation: 4.3,
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut",
-      duration: 1,
-    });
-  }
+  const passers = document.querySelectorAll(".plantin-hero--pa , .sitting__passer");
+
+  passers.forEach(passer => {
+    if (hasReducedMotion) {
+      gsap.set(passer, {
+        rotation: 0,
+      });
+    } else {
+      gsap.set(passer, {
+        rotation: -4.3,
+      });
+      gsap.to(passer, {
+        transformOrigin: '40% top',
+        rotation: 4.3,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        duration: 1,
+      });
+    }
+
+  });
 
 };
 
@@ -94,7 +98,7 @@ const hamburgerMenu = () => {
   document.querySelector('.hamburger').addEventListener('click', toggleMenu);
   document.querySelector('.close-btn').addEventListener('click', toggleMenu);
   const menuLinks = document.querySelectorAll(".menu__link");
- 
+
   menuLinks.forEach(link => {
     link.addEventListener('click', toggleMenu);
   });
@@ -262,74 +266,65 @@ const introAnimations = () => {
   const mathImg = document.querySelector(".math__img");
   const cta = document.querySelector(".inf__cta");
 
-  gsap.set(yearLetters, {
-    y: () => gsap.utils.random(-20, 20),
-    rotation: () => gsap.utils.random(-30, 30), // Random rotation
-  });
+  if (!hasReducedMotion) {
+    gsap.set(yearLetters, {
+      y: () => gsap.utils.random(-20, 20),
+      rotation: () => gsap.utils.random(-30, 30), // Random rotation
+    });
 
-  const getStartingPosition = (isLeft) => {
-    const viewportWidth = window.innerWidth;
-    const minViewport = 380;
-    const maxViewport = 1440;
+    const getStartingPosition = (isLeft) => {
+      const viewportWidth = window.innerWidth;
+      const minViewport = 380;
+      const maxViewport = 1440;
 
-    const percentage = gsap.utils.interpolate(
-      isLeft ? -100 : 100,
-      isLeft ? -450 : 450,
-      (viewportWidth - minViewport) / (maxViewport - minViewport)
-    );
+      const percentage = gsap.utils.interpolate(
+        isLeft ? -100 : 100,
+        isLeft ? -450 : 450,
+        (viewportWidth - minViewport) / (maxViewport - minViewport)
+      );
 
-    return `${percentage}%`;
-  };
+      return `${percentage}%`;
+    };
 
-  gsap.set(yearLeft, {
-    x: () => getStartingPosition(true),
-  });
+    gsap.set(yearLeft, {
+      x: () => getStartingPosition(true),
+    });
 
-  gsap.set(yearRight, {
-    x: () => getStartingPosition(false),
-  });
+    gsap.set(yearRight, {
+      x: () => getStartingPosition(false),
+    });
 
-  gsap.set([infText, cpPasser, cpImg, mathImg, cta], {
-    opacity: 0,
-    y: 50,
-  });
+    gsap.set([infText, cpPasser, cpImg, mathImg, cta], {
+      opacity: 0,
+      y: 50,
+    });
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".intro",
-      start: "top 60%",
-      end: "top 20%",
-      toggleActions: "play complete reverse reset",
-      scrub: 2,
-    },
-  });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".intro",
+        start: "top 60%",
+        end: "top 20%",
+        toggleActions: "play complete reverse reset",
+        scrub: 2,
+      },
+    });
 
-  yearLetters.forEach((letter, index) => {
+    yearLetters.forEach((letter, index) => {
+      tl.to(
+        letter,
+        {
+          x: 0,
+          y: 0,
+          rotation: 0,
+          duration: 1,
+          ease: "power2.out",
+        },
+        index * 0.2
+      );
+    });
+
     tl.to(
-      letter,
-      {
-        x: 0,
-        y: 0,
-        rotation: 0,
-        duration: 1,
-        ease: "power2.out",
-      },
-      index * 0.2
-    );
-  });
-
-  tl.to(
-    infText,
-    {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "power2.out",
-    },
-    "-=0.5"
-  )
-    .to(
-      cpPasser,
+      infText,
       {
         opacity: 1,
         y: 0,
@@ -338,37 +333,47 @@ const introAnimations = () => {
       },
       "-=0.5"
     )
-    .to(
-      cta,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out",
-      },
-      "-=0.5"
-    )
-    .to(
-      cpImg,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out",
-      },
-      "-=0.5"
-    )
-    .to(
-      mathImg,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out",
-      },
-      "-=0.5"
-    );
-
+      .to(
+        cpPasser,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+        },
+        "-=0.5"
+      )
+      .to(
+        cta,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+        },
+        "-=0.5"
+      )
+      .to(
+        cpImg,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+        },
+        "-=0.5"
+      )
+      .to(
+        mathImg,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+        },
+        "-=0.5"
+      );
+  }
 }
 
 const stampAnimation = () => {
@@ -861,52 +866,32 @@ const biblePopUp = () => {
     }, "-=0.7");
 }
 
-/*
-const passerDown = () => {
-  const passer = document.querySelector(".third__compasses.moving");
-  const staticPasser = document.querySelector(".third__compasses.static");
-  const smallPasser = document.querySelector(".sitting__passer");
-  const koepel = document.querySelector(".koepel");
-  const compassLeg = document.querySelector(".compasses__leg");
-  const compassCircle = document.querySelector(".compasses__circle");
-  const resetButton = document.querySelector(".compasses__reset");
+const quoteTyped = () => {
+  const quote = document.querySelector(".motto__quote");
+  const fullText = quote.innerText;
 
-  const bigPasserTop = staticPasser.getBoundingClientRect().top + window.scrollY;
-  const smallPasserTop = smallPasser.getBoundingClientRect().top + window.scrollY;
-  const distanceToSmallPasser = smallPasserTop - bigPasserTop;
-
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: staticPasser,
-      start: "top top",
-      end: `+=${distanceToSmallPasser}-200`, 
-      pin: false,
-      scrub: 1,
-      markers: true,
-      onUpdate: () => { 
-        gsap.to(compassLeg, { rotation: 0, duration: 0.5 });
-        gsap.to(compassCircle, { width: 0, height: 0, duration: 0.5 });
-        resetButton.style.display = "none";
+  if (!hasReducedMotion) {
+    gsap.fromTo(quote,
+      {
+        textContent: ""
       },
-    },
-  });
+      {
+        scrollTrigger: {
+          trigger: ".motto",
+          start: "10% 5%",
+          end: "10% top",
+          toggleActions: "play none reverse none",
+        },
+        textContent: fullText,
+        duration: fullText.length * 0.03,
+        ease: "linear",
+        onUpdate: function () {
+          quote.innerHTML = fullText.slice(0, Math.ceil(this.progress() * fullText.length));
+        }
+      });
+  }
+}
 
-  tl.to(passer, {
-    y: distanceToSmallPasser, 
-    opacity: 0, 
-    scale: 0.4, 
-    duration: 1,
-  });
-
-  tl.to(
-    smallPasser,
-    {
-      opacity: 1, 
-      duration: 0.5,
-    },
-    "<"
-  );
-};*/
 
 
 init();

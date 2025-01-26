@@ -155,7 +155,6 @@ img {
   place-self: center;
   width: 100vw;
   font-family: "Yaldevi", serif;
-  font-optical-sizing: auto;
   font-weight: normal;
   font-style: normal;
   line-height: 134%;
@@ -1181,16 +1180,6 @@ html:not(.has-js) .quiz__guess {
 .third {
   flex: 0 0 100vw;
 }
-
-/*
-.third__compasses.moving {
-  position: absolute;
-  transform: translateY(clamp(15%, 10vw, 5%));
-}
-
-.third__compasses.static{
-  opacity: 0;
-}*/
 
 /*koepel*/
 
@@ -2378,7 +2367,7 @@ html:not(.has-js) .object {
   }
 
   body {
-    background-image: url(../assets/img/texture-desktop-hero.png);
+    background-image: url(../assets/img/texture-desktop-hero-opacity.png);
   }
 
   .sign,
