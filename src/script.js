@@ -57,10 +57,12 @@ const init = () => {
   dragBook();
   biblePopUp();
   quoteTyped();
+  extraAnimations();
 }
 
 const passerSwing = () => {
   const passers = document.querySelectorAll(".plantin-hero--pa , .sitting__passer");
+  const passerVS = document.querySelector(".vs__compass");
 
   passers.forEach(passer => {
     if (hasReducedMotion) {
@@ -80,8 +82,27 @@ const passerSwing = () => {
         duration: 1,
       });
     }
-
   });
+
+  if (is1000) {
+    if (hasReducedMotion) {
+      gsap.set(passerVS, {
+        rotation: 0,
+      });
+    } else {
+      gsap.set(passerVS, {
+        rotation: -1,
+      });
+      gsap.to(passerVS, {
+        transformOrigin: '50% top',
+        rotation: 1,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        duration: 1,
+      });
+    }
+  }
 
 };
 
@@ -892,6 +913,48 @@ const quoteTyped = () => {
   }
 }
 
+const extraAnimations = () => {
+  const printImages = document.querySelectorAll(".printmark2__img, .printmark1__img");
+
+  if (!hasReducedMotion) {
+    printImages.forEach((image, index) => {
+      const delay = index * 0.9; 
+
+      const tl = gsap.timeline({
+        repeat: -1,
+        repeatDelay: 3,
+        delay: delay, 
+      });
+
+      tl
+        .to(image, {
+          rotation: -2,
+          duration: 0.5,
+          ease: "power1.inOut",
+        })
+        .to(image, {
+          rotation: 2,
+          duration: 0.3,
+          ease: "power1.inOut",
+        })
+        .to(image, {
+          rotation: -2,
+          duration: 0.3,
+          ease: "power1.inOut",
+        })
+        .to(image, {
+          rotation: 2,
+          duration: 0.3,
+          ease: "power1.inOut",
+        })
+        .to(image, {
+          rotation: 0,
+          duration: 0.5,
+          ease: "power1.inOut",
+        });
+    });
+  }
+}
 
 
 init();
