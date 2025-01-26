@@ -93,6 +93,12 @@ const handleLoadDisappear = () => {
 const hamburgerMenu = () => {
   document.querySelector('.hamburger').addEventListener('click', toggleMenu);
   document.querySelector('.close-btn').addEventListener('click', toggleMenu);
+  const menuLinks = document.querySelectorAll(".menu__link");
+ 
+  menuLinks.forEach(link => {
+    link.addEventListener('click', toggleMenu);
+  });
+
 }
 
 const toggleMenu = () => {
